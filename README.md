@@ -1,4 +1,4 @@
-# E-Locker - Registro de Entregas
+# E-Locker - Registro de Entregas (Em desenvolvimento)
 Sistema de recebimento e registro de entregas para condomínios, onde o mesmo dispõe de um perfil de autenticação onde o usuário irá logar e registrar a encomenda recebida, registrando por nome da empresa, nome do entregador (opcional), foto, descrição e a unidade destinatária. 
 
 Para a retirada da entrega, o mesmo registra o nome da pessoa que retirou, sua assinatura e foto (opcional). Venha conferir!
