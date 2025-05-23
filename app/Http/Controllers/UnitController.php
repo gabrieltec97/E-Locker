@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Unit;
 use Illuminate\Http\Request;
 
-class testeController extends Controller
+class UnitController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,7 +34,7 @@ class testeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Unit $unit)
     {
         //
     }
@@ -41,7 +42,7 @@ class testeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Unit $unit)
     {
         //
     }
@@ -49,7 +50,7 @@ class testeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Unit $unit)
     {
         //
     }
@@ -57,7 +58,7 @@ class testeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Unit $unit)
     {
         //
     }
