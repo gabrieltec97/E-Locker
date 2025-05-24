@@ -20,6 +20,7 @@ Back-end:
 - Laravel
 - MySql
 - Livewire
+- ACL
 
 ## ✨ Principais Funcionalidades
 
