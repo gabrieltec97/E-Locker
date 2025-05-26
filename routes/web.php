@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -9,3 +10,5 @@ Route::get('/', function () {
 Route::get('/teste', function () {
     return view('dashboard');
 });
+
+Route::resource('unidades', UnitController::class);
