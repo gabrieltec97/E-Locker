@@ -40,6 +40,11 @@ Gerenciamento total (CRUD) de:
 - Unidades
 - Usuários
 
+O sistema disponibiliza 2 (dois) tipos de usuário:
+
+- Administrador
+- Operador
+
 ## 🛠️ Como rodar o projeto
 
 1. Tenha em sua máquina um ambiente que faça a emulação de um servidor, como Xampp ou Docker instalado e parametrizado.
