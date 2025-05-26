@@ -32,6 +32,7 @@ Back-end:
 - Dashboard com comparativo de entregas ao longo dos meses
 - Filtragem de entregas por mês
 - Informações de unidades com mais entregas
+- ACL para controle de permissões de usuário
 
 Gerenciamento total (CRUD) de:
 
