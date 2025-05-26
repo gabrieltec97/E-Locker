@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Unidades')
+@section('title', 'Blocos e Unidades - Gerenciamento completo de unidades.')
 
 @section('content')
     <div class="container-fluid">
