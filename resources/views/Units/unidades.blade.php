@@ -15,27 +15,14 @@
                             <div class="col-md-6 col-12">
                                 <h5 class="mb-0">Blocos e Unidades</h5>
                                 <p class="text-sm mb-0">
-                                    <i class="fa fa-check text-info" aria-hidden="true"></i>
                                     <span class="font-weight-bold">Gerenciamento</span> completo
                                 </p>
                             </div>
 
                             <!-- Coluna dos botões -->
                             <div class="col-md-6 col-12 d-flex justify-content-end gap-2 mt-2 mt-md-0">
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-unit">Nova unidade</button>
-                                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#new-block">Novo bloco</button>
-                            </div>
-                            <div class="col-lg-6 col-5 my-auto text-end">
-                                <div class="dropdown float-lg-end pe-4">
-                                    <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa fa-ellipsis-v text-secondary"></i>
-                                    </a>
-                                    <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
-                                        <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
-                                        <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
-                                        <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
-                                    </ul>
-                                </div>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-unit"><i class="fa-solid fa-circle-plus"></i> Nova unidade</button>
+                                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#new-block"><i class="fa-solid fa-circle-plus"></i> Novo bloco</button>
                             </div>
                         </div>
                     </div>
@@ -90,8 +77,9 @@
     <div class="modal fade" id="new-block" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header d-flex">
                     <h5 class="modal-title" id="exampleModalLongTitle">Cadastrar bloco</h5>
+                    <i class="fa-solid fa-circle-xmark text-danger ms-auto cursor-pointer" data-bs-dismiss="modal"></i>
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
@@ -108,7 +96,7 @@
                 </div>
                 <div class="modal-footer format-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-circle-check"></i> Cadastrar</button>
                 </div>
             </div>
         </div>
@@ -118,18 +106,37 @@
     <div class="modal fade" id="new-unit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="modal-header d-flex">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Cadastrar unidade</h5>
+                    <i class="fa-solid fa-circle-xmark text-danger ms-auto cursor-pointer" data-bs-dismiss="modal"></i>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <div class="container-fluid">
+                        <form action="#" method="post">
+                            @csrf
+                            <div class="row">
+                                <div class="col-12 col-lg-6 col-md-6">
+                                    <span class="font-weight-bold modal-label">Número da unidade:</span>
+                                    <input type="number" name="block" class="form-control input-format mt-3">
+                                </div>
+
+                                <div class="col-12 col-lg-6 col-md-6">
+                                    <span class="font-weight-bold modal-label">Número do bloco:</span>
+                                    <select name="block" class="form-control input-format mt-3">
+                                        <option selected disabled>Selecione</option>
+                                        <option value="1">BL 1</option>
+                                        <option value="1">BL 2</option>
+                                        <option value="1">BL 3</option>
+                                        <option value="1">BL 4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div class="modal-footer format-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-circle-check"></i> Cadastrar</button>
                 </div>
             </div>
         </div>
