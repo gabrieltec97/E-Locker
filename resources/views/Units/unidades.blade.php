@@ -21,8 +21,8 @@
 
                             <!-- Coluna dos botões -->
                             <div class="col-md-6 col-12 d-flex justify-content-end gap-2 mt-2 mt-md-0">
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-unit"><i class="fa-solid fa-circle-plus"></i> Nova unidade</button>
-                                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#new-block"><i class="fa-solid fa-circle-plus"></i> Novo bloco</button>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-unit"><i class="fa-solid fa-circle-plus icon-format"></i> Nova unidade</button>
+                                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#new-block"><i class="fa-solid fa-circle-plus icon-format"></i> Novo bloco</button>
                             </div>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                 </div>
                 <div class="modal-footer format-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-circle-check"></i> Cadastrar</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-circle-check icon-format"></i> Cadastrar</button>
                 </div>
             </div>
         </div>
@@ -136,7 +136,7 @@
                 </div>
                 <div class="modal-footer format-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-circle-check"></i> Cadastrar</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-circle-check icon-format"></i> Cadastrar</button>
                 </div>
             </div>
         </div>
