@@ -12,8 +12,8 @@ Front-end:
 - CSS
 - JavaScript
 - Bootstrap
-- Laravel
 - LavaCharts
+- Notyf
 
 Back-end:
 - PHP
