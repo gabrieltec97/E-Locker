@@ -10,7 +10,7 @@ Para a retirada da entrega, o mesmo registra o nome da pessoa que retirou, sua a
 Front-end:
 - HTML
 - CSS
-- JavaScript
+- JavaScript ES6
 - Bootstrap
 - LavaCharts
 - Notyf
