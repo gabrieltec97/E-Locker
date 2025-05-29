@@ -85,31 +85,36 @@
                         <form action="#" method="post">
                             @csrf
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-12 col-lg-6">
                                     <span class="font-weight-bold modal-label">Nome:</span>
-                                    <input type="number" name="block" class="form-control input-format mt-3">
+                                    <input type="text" name="name" class="form-control input-format mt-3">
                                 </div>
 
-                                <div class="col-6">
+                                <div class="col-12 col-lg-6">
+                                    <span class="font-weight-bold modal-label">E-mail:</span>
+                                    <input type="email" name="email" class="form-control input-format mt-3">
+                                </div>
+
+                                <div class="col-12 col-lg-6 mt-3">
                                     <span class="font-weight-bold modal-label">Perfil:</span>
-                                    <select class="form-control input-format mt-3">
+                                    <select name="profile" class="form-control input-format mt-3">
                                         <option disabled selected>Selecione</option>
-                                        <option value="">Administrador</option>
-                                        <option value="">Operador</option>
+                                        <option value="Administrador">Administrador</option>
+                                        <option value="Operador">Operador</option>
                                     </select>
                                 </div>
 
-                                <div class="col-12 mt-3">
+                                <div class="col-12 col-lg-6 mt-3">
                                     <span class="font-weight-bold modal-label">Senha:</span>
-                                    <input type="number" name="block" class="form-control input-format mt-3">
+                                    <input type="password" name="password" class="form-control input-format mt-3">
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
                 <div class="modal-footer format-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                     <button type="submit" class="btn btn-primary"><i class="fa-solid fa-circle-check icon-format"></i> Cadastrar</button>
+                    </form>
                 </div>
             </div>
         </div>
