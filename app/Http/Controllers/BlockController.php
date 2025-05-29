@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Block;
 use Illuminate\Http\Request;
 
 class BlockController extends Controller
 {
-
     public function store(Request $request)
     {
+        $block = new Block();
+        $block->number = $request->block;
+        $block->save();
 
+        return redirect()->back();
     }
 
     /**

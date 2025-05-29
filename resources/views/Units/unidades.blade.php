@@ -85,11 +85,10 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-12">
-                                <form class="form-group" action="#" method="post">
+                                <form class="form-group" action="{{ route('blocos.store') }}" method="post">
                                     @csrf
                                     <span class="font-weight-bold modal-label">Número do bloco:</span>
                                     <input type="number" name="block" class="form-control input-format mt-3">
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -97,6 +96,7 @@
                 <div class="modal-footer format-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                     <button type="submit" class="btn btn-primary"><i class="fa-solid fa-circle-check icon-format"></i> Cadastrar</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -117,17 +117,16 @@
                             <div class="row">
                                 <div class="col-12 col-lg-6 col-md-6">
                                     <span class="font-weight-bold modal-label">Número da unidade:</span>
-                                    <input type="number" name="block" class="form-control input-format mt-3">
+                                    <input type="number" name="unit" class="form-control input-format mt-3">
                                 </div>
 
                                 <div class="col-12 col-lg-6 col-md-6">
                                     <span class="font-weight-bold modal-label">Número do bloco:</span>
                                     <select name="block" class="form-control input-format mt-3">
                                         <option selected disabled>Selecione</option>
-                                        <option value="1">BL 1</option>
-                                        <option value="1">BL 2</option>
-                                        <option value="1">BL 3</option>
-                                        <option value="1">BL 4</option>
+                                        @foreach($blocks as $block)
+                                            <option value="{{$block->number}}">Bloco {{$block->number}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
