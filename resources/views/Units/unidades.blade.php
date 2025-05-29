@@ -27,46 +27,7 @@
                         </div>
                     </div>
                     <div class="card-body px-0 pb-2">
-                        <div class="table-responsive">
-                            <table class="table align-items-center mb-0">
-                                <thead>
-                                <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unidade</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Bloco</th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ajustes</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div>
-                                                <img src="../assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm me-3" alt="xd">
-                                            </div>
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">Soft UI XD Version</h6>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle">
-                                        <div class="progress-wrapper w-75 mx-auto">
-                                            <div class="progress-info">
-                                                <div class="progress-percentage">
-                                                    <span class="text-xs font-weight-bold">60%</span>
-                                                </div>
-                                            </div>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle text-center text-sm">
-                                        <span class="text-xs font-weight-bold"> $14,000 </span>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        @livewire('units')
                     </div>
                 </div>
             </div>

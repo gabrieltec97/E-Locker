@@ -9,9 +9,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/teste', function () {
+Route::get('/dashboard', function () {
     return view('dashboard');
-});
+})->name('dashboard');
 
 Route::resource('unidades', UnitController::class);
 Route::resource('usuarios', UserController::class);
