@@ -51,7 +51,7 @@
                                                 </div>
                                             </td>
                                             <td class="align-middle text-center text-sm">
-                                                <a href="{{ route('usuarios.edit', $user->id) }}"><i class="fa-solid fa-user-pen cursor-pointer maintence-icon"></i></a>
+                                                <a href="{{ route('usuarios.show', $user->id) }}"><i class="fa-solid fa-user-pen cursor-pointer maintence-icon"></i></a>
                                                 <i class="fa-solid fa-trash cursor-pointer text-danger" id="delete{{$user->id}}"></i>
                                             </td>
                                         </tr>
@@ -69,9 +69,8 @@
                                                     icon: "question",
                                                     showCancelButton: true,
                                                     cancelButtonText: 'Voltar',
-                                                    cancelButtonColor: '',
                                                     confirmButtonText: 'Excluir',
-                                                    confirmButtonColor: 'red',
+                                                    confirmButtonColor: '#F97316',
                                                     focusCancel: true
                                                 }).then((result) => {
                                                     if (result.isConfirmed) {
@@ -101,7 +100,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                        <form action="#" method="post">
+                        <form action="{{ route('usuarios.store') }}" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-12 col-lg-6">

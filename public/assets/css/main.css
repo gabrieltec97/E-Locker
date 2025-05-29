@@ -28,3 +28,8 @@
     margin-left: -5px;
     margin-right: 10px;
 }
+
+.swal2-icon.swal2-question {
+    border-color: #F97316; /* borda do círculo */
+    color: #F97316;        /* ponto de interrogação */
+}

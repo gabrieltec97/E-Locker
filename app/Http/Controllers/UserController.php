@@ -27,18 +27,33 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    public function edit(string $id)
+    public function show(string $id)
     {
-        echo $id;
+        $user = User::find($id);
+        return view('Users.user-edit', [
+            'user' => $user
+        ]);
     }
 
     public function update(Request $request, string $id)
     {
-        //
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->profile = $request->profile;
+        if ($request->password != null){
+            $user->password = bcrypt($request->password);
+        }
+
+        $user->save();
+        return redirect()->route('usuarios.index');
     }
 
     public function destroy(string $id)
     {
-        echo $id;
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect()->back();
     }
 }
