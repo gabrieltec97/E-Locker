@@ -112,7 +112,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                        <form action="#" method="post">
+                        <form action="{{ route('unidades.store') }}" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-12 col-lg-6 col-md-6">
@@ -130,12 +130,12 @@
                                     </select>
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
                 <div class="modal-footer format-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                     <button type="submit" class="btn btn-primary"><i class="fa-solid fa-circle-check icon-format"></i> Cadastrar</button>
+                    </form>
                 </div>
             </div>
         </div>

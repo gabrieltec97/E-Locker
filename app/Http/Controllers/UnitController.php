@@ -24,7 +24,11 @@ class UnitController extends Controller
     public function store(Request $request)
     {
         $unit = new Unit();
-        $unit->
+        $unit->number = $request->unit;
+        $unit->block = $request->block;
+        $unit->save();
+
+        return redirect()->back();
     }
 
     public function show(Unit $unit)
