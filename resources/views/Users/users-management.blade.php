@@ -52,9 +52,35 @@
                                             </td>
                                             <td class="align-middle text-center text-sm">
                                                 <a href="{{ route('usuarios.edit', $user->id) }}"><i class="fa-solid fa-user-pen cursor-pointer maintence-icon"></i></a>
-                                                <i class="fa-solid fa-trash cursor-pointer text-danger"></i>
+                                                <i class="fa-solid fa-trash cursor-pointer text-danger" id="delete{{$user->id}}"></i>
                                             </td>
                                         </tr>
+
+                                        <form id="form-delete-{{ $user->id }}" action="{{ route('usuarios.destroy', $user->id) }}" method="POST" style="display: none;">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+
+                                        <script>
+                                            const btnAlert{{ $user->id }} = document.querySelector('#delete{{ $user->id }}');
+                                            btnAlert{{ $user->id }}.addEventListener('click', function () {
+                                                Swal.fire({
+                                                    html: `Deseja excluir o usuário <b>{{ $user->name }}</b>?`,
+                                                    icon: "question",
+                                                    showCancelButton: true,
+                                                    cancelButtonText: 'Voltar',
+                                                    cancelButtonColor: '',
+                                                    confirmButtonText: 'Excluir',
+                                                    confirmButtonColor: 'red',
+                                                    focusCancel: true
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                        document.getElementById('form-delete-{{ $user->id }}').submit();
+                                                    }
+                                                });
+                                            });
+                                        </script>
+
                                     @endforeach
                                 </tbody>
                             </table>
