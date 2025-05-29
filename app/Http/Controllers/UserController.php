@@ -9,12 +9,10 @@ class UserController extends Controller
 {
     public function index()
     {
-        return view('Users.users-management');
-    }
-
-    public function create()
-    {
-        //
+        $users = User::all();
+        return view('Users.users-management', [
+            'users' => $users
+        ]);
     }
 
     public function store(Request $request)
@@ -29,14 +27,9 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    public function show(string $id)
-    {
-        //
-    }
-
     public function edit(string $id)
     {
-        //
+        echo $id;
     }
 
     public function update(Request $request, string $id)
