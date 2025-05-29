@@ -46,12 +46,16 @@ class UserController extends Controller
 
     public function update(Request $request, string $id)
     {
+        //Verificação para e-mail utilizado.
         $check = DB::table('users')
+            ->select('id')
             ->where('email', $request->email)
-            ->count();
+            ->get();
 
-        if ($check != 0){
-            return redirect()->back()->with('msg-error', 'E-mail já em uso no sistema!');
+        if (count($check) != 0){
+            if ($check[0]->id != $id){
+                return redirect()->back()->with('msg-error', 'E-mail já em uso no sistema!');
+            }
         }
 
         $user = User::find($id);
