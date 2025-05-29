@@ -71,7 +71,21 @@ class UnitController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $check = DB::table('units')
+            ->where('number', $request->unit)
+            ->where('block', $request->block)
+            ->count();
+
+        if ($check != 0){
+            return redirect()->back()->with('msg-error', 'Unidade já cadastrada no sistema!');
+        }
+
+        $unit = new Unit();
+        $unit->number = $request->unit;
+        $unit->block = $request->block;
+        $unit->save();
+
+        return redirect()->back()->with('msg-success', 'Alterações realizadas com sucesso!');
     }
 
     /**

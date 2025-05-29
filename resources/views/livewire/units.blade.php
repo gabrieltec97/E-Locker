@@ -1,3 +1,7 @@
+@php
+    $blocks = \App\Models\Block::all();
+@endphp
+
 <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
 <div>
     <input type="search" class="form-control mb-2" style="margin-left: 10px; width: 98%;" wire:model.live.debounce.150ms="searchTerm">
@@ -17,7 +21,7 @@
                         <td>{{$unit->number}}</td>
                         <td>{{ $unit->block }}</td>
                         <td class="align-middle text-center text-sm">
-                            <a href="{{ route('usuarios.show', $unit->id) }}"><i class="fa-solid fa-user-pen cursor-pointer maintence-icon"></i></a>
+                            <i class="fa-solid fa-user-pen cursor-pointer maintence-icon" data-bs-toggle="modal" data-bs-target="#edit-unit{{ $unit->id }}"></i>
                             <i class="fa-solid fa-trash cursor-pointer text-danger" id="delete{{$unit->id}}"></i>
                         </td>
                     </tr>
@@ -45,6 +49,60 @@
                             });
                         });
                     </script>
+
+                    <!-- Modal de unidades-->
+                    <div class="modal fade" id="edit-unit{{ $unit->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header d-flex">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Editar unidade</h5>
+                                    <i class="fa-solid fa-circle-xmark text-danger ms-auto cursor-pointer" data-bs-dismiss="modal"></i>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <form action="{{ route('unidades.update', $unit->id ) }}" method="post">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="row">
+                                                <div class="col-12 col-lg-6 col-md-6">
+                                                    <span class="font-weight-bold modal-label">Número da unidade:</span>
+                                                    <input type="number" name="unit" class="form-control input-format mt-3" value="{{ $unit->number }}">
+                                                </div>
+
+                                                <div class="col-12 col-lg-6 col-md-6">
+                                                    <span class="font-weight-bold modal-label">Número do bloco:</span>
+                                                    <select name="block" class="form-control input-format mt-3">
+                                                        <option selected disabled>Selecione</option>
+                                                        @foreach($blocks as $block)
+                                                            <option value="{{$block->number}}" {{ $unit->block == $block->number ? 'selected' : '' }}>Bloco {{$block->number}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer format-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                    <button type="submit" class="btn btn-primary" id="save{{ $unit->id }}">
+                                        <span class="button-text"><i class="fa-solid fa-circle-check icon-format"></i> Salvar alterações</span>
+                                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                    </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        document.getElementById('save{{ $unit->id }}').addEventListener('click', function () {
+                            const button = this;
+                            const text = button.querySelector('.button-text');
+                            const spinner = button.querySelector('.spinner-border');
+
+                            text.classList.add('d-none');
+                            spinner.classList.remove('d-none');
+                        });
+                    </script>
                 @endforeach
             @else
                 <tr>
@@ -54,3 +112,5 @@
         </tbody>
     </table>
 </div>
+
+

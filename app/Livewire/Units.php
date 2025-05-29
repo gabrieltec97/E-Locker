@@ -13,7 +13,6 @@ class Units extends Component
     public function render()
     {
         $this->units = Unit::where('number', 'like', '%'.$this->searchTerm.'%')->get();
-
         return view('livewire.units');
     }
 }
