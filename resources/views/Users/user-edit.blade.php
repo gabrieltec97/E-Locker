@@ -21,9 +21,9 @@
 
                             <!-- Coluna dos botões -->
                             <div class="col-md-6 col-12 d-flex justify-content-end gap-2 mt-2 mt-md-0">
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-block" id="save">
-                                    <i class="fa-solid fa-circle-check icon-format"></i>
-                                    Salvar alterações
+                                <button class="btn btn-primary" id="save">
+                                    <span class="button-text"><i class="fa-solid fa-circle-check icon-format"></i>Salvar alterações</span>
+                                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                                 </button>
                             </div>
                         </div>
@@ -69,6 +69,34 @@
         document.getElementById('save').addEventListener('click', function() {
             document.getElementById('user-edit').submit();
         });
+    </script>
 
+    @if(session('msg-error'))
+        <script>
+            const notyf = new Notyf({
+                position: {
+                    x: 'right',
+                    y: 'top',
+                }
+            });
+
+            notyf
+                .error({
+                    message: '{{ session('msg-error') }}',
+                    dismissible: true,
+                    duration: 5000
+                })
+        </script>
+    @endif
+
+    <script>
+        document.getElementById('save').addEventListener('click', function () {
+            const button = this;
+            const text = button.querySelector('.button-text');
+            const spinner = button.querySelector('.spinner-border');
+
+            text.classList.add('d-none');
+            spinner.classList.remove('d-none');
+        });
     </script>
 @endsection

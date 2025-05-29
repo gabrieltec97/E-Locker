@@ -131,10 +131,61 @@
                 </div>
                 <div class="modal-footer format-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-circle-check icon-format"></i> Cadastrar</button>
+                    <button type="submit" class="btn btn-primary" id="register">
+                        <span class="button-text"><i class="fa-solid fa-circle-check icon-format"></i> Cadastrar</span>
+                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                    </button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    @if(session('msg-success'))
+        <script>
+            const notyf = new Notyf({
+                position: {
+                    x: 'right',
+                    y: 'top',
+                }
+            });
+
+            notyf
+                .success({
+                    message: '{{ session('msg-success') }}',
+                    dismissible: true,
+                    duration: 5000
+                });
+        </script>
+    @endif
+
+    @if(session('msg-error'))
+        <script>
+            const notyf = new Notyf({
+                position: {
+                    x: 'right',
+                    y: 'top',
+                }
+            });
+
+            notyf
+                .error({
+                    message: '{{ session('msg-error') }}',
+                    dismissible: true,
+                    duration: 5000
+                })
+        </script>
+    @endif
+
+    <script>
+        document.getElementById('register').addEventListener('click', function () {
+            const button = this;
+            const text = button.querySelector('.button-text');
+            const spinner = button.querySelector('.spinner-border');
+
+            text.classList.add('d-none');
+            spinner.classList.remove('d-none');
+        });
+    </script>
+
 @endsection

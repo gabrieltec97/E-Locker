@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -17,6 +18,14 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $check = DB::table('users')
+            ->where('email', $request->email)
+            ->count();
+
+        if ($check != 0){
+            return redirect()->back()->with('msg-error', 'E-mail já em uso no sistema!');
+        }
+
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -24,7 +33,7 @@ class UserController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('msg-success', 'Usuário cadastrado com sucesso!');
     }
 
     public function show(string $id)
@@ -37,6 +46,14 @@ class UserController extends Controller
 
     public function update(Request $request, string $id)
     {
+        $check = DB::table('users')
+            ->where('email', $request->email)
+            ->count();
+
+        if ($check != 0){
+            return redirect()->back()->with('msg-error', 'E-mail já em uso no sistema!');
+        }
+
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
@@ -46,7 +63,7 @@ class UserController extends Controller
         }
 
         $user->save();
-        return redirect()->route('usuarios.index');
+        return redirect()->route('usuarios.index')->with('msg-success', 'Alterações salvas com sucesso!');
     }
 
     public function destroy(string $id)
@@ -54,6 +71,6 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('msg-success', 'Usuário deletado com sucesso!');
     }
 }
