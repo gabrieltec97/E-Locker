@@ -14,6 +14,7 @@ Front-end:
 - Bootstrap
 - LavaCharts
 - Notyf
+- SweetAlert2
 
 Back-end:
 - PHP
