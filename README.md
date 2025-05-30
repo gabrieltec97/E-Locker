@@ -12,6 +12,7 @@ Front-end:
 - CSS
 - JavaScript ES6
 - Bootstrap
+- Vue.Js
 - LavaCharts
 - Notyf
 - SweetAlert2
@@ -22,6 +23,7 @@ Back-end:
 - MySql
 - Livewire
 - ACL
+- Axios
 
 ## ✨ Principais Funcionalidades
 
