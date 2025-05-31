@@ -20,7 +20,7 @@
                             </div>
 
                             <div class="col-md-6 col-12 d-flex justify-content-end gap-2 mt-2 mt-md-0">
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-unit"><i class="fa-solid fa-circle-plus icon-format"></i> Registrar entrega</button>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-unit"><i class="fa-solid fa-circle-plus icon-format"></i> Registrar unidade</button>
                             </div>
                         </div>
                     </div>

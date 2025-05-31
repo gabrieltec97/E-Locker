@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Packet;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 
 class PacketController extends Controller
@@ -14,7 +15,10 @@ class PacketController extends Controller
 
     public function create()
     {
-        return view('Packets.new-packet');
+        $units = Unit::all();
+        return view('Packets.new-packet', [
+            'units' => $units
+        ]);
     }
 
     public function store(Request $request)
