@@ -49,9 +49,6 @@
                                             <option value="">{{ $unit->number }} - BL 0{{ $unit->block }}</option>
                                         @endforeach
                                     </select>
-
-                        
-                                    
                                 </div>
 
                                 <div class="col-6 mt-3">
@@ -61,7 +58,7 @@
 
                                 <div class="col-12 mt-3">
                                     <span class="font-weight-bold modal-label">Comentários:</span>
-                                    <textarea name="comments" class="form-control mt-2 format-textarea" rows="5"></textarea>
+                                    <textarea name="comments" class="form-control mt-2 format-textarea modal-label" rows="5"></textarea>
                                 </div>
                             </div>
                         </div>
