@@ -33,3 +33,9 @@
     border-color: #F97316; /* borda do círculo */
     color: #F97316;        /* ponto de interrogação */
 }
+
+.format-textarea
+{
+    resize: none;
+    left: -100px !important;
+}

@@ -14,7 +14,7 @@ class PacketController extends Controller
 
     public function create()
     {
-        //
+        return view('Packets.new-packet');
     }
 
     public function store(Request $request)
