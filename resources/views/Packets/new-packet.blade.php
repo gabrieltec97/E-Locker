@@ -20,7 +20,7 @@
                             </div>
 
                             <div class="col-md-6 col-12 d-flex justify-content-end gap-2 mt-2 mt-md-0">
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-unit"><i class="fa-solid fa-circle-plus icon-format"></i> Registrar unidade</button>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-unit"><i class="fa-solid fa-circle-plus icon-format"></i> Registrar entrega</button>
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,15 @@
 
                                 <div class="col-4">
                                     <span class="font-weight-bold modal-label">Unidade:</span>
-                                    <input type="text" name="recipient" class="form-control input-format mt-2">
+                                    <select name="unit" class="form-control input-format mt-1">
+                                        <option selected disabled>Selecione</option>
+                                        @foreach ($units as $unit)
+                                            <option value="">{{ $unit->number }} - BL 0{{ $unit->block }}</option>
+                                        @endforeach
+                                    </select>
+
+                        
+                                    
                                 </div>
 
                                 <div class="col-6 mt-3">
