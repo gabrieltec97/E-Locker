@@ -18,8 +18,17 @@
             @if($units && $units->count() > 0)
                 @foreach($units as $unit)
                     <tr>
-                        <td>{{$unit->number}}</td>
-                        <td>{{ $unit->block }}</td>
+                        <td>
+                            <div class="d-flex px-3 py-1">
+                                <div class="d-flex flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm">{{$unit->number}}</h6>
+                                </div>
+                            </div>
+                        </td>
+                        
+                        <td>
+                            <h6 class="mb-0 text-sm">{{ $unit->block }}</h6>
+                        </td>
                         <td class="align-middle text-center text-sm">
                             <i class="fa-solid fa-user-pen cursor-pointer maintence-icon" data-bs-toggle="modal" data-bs-target="#edit-unit{{ $unit->id }}"></i>
                             <i class="fa-solid fa-trash cursor-pointer text-danger" id="delete{{$unit->id}}"></i>
