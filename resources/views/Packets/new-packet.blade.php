@@ -20,7 +20,10 @@
                             </div>
 
                             <div class="col-md-6 col-12 d-flex justify-content-end gap-2 mt-2 mt-md-0">
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-unit"><i class="fa-solid fa-circle-plus icon-format"></i> Registrar entrega</button>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-unit" id="register">
+                                    <span class="button-text"><i class="fa-solid fa-circle-plus icon-format"></i> Registrar entrega</span>
+                                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -103,4 +106,15 @@
                 })
         </script>
     @endif
+
+    <script>
+        document.getElementById('register').addEventListener('click', function () {
+            const button = this;
+            const text = button.querySelector('.button-text');
+            const spinner = button.querySelector('.spinner-border');
+
+            text.classList.add('d-none');
+            spinner.classList.remove('d-none');
+        });
+    </script>
 @endsection
