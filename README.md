@@ -31,7 +31,7 @@ Back-end:
 - Login com autenticação
 - Validação de formulários
 - Listagem e edição de dados
-- Busca em tempo real de pedidos via Id ou nome do cliente
+- Busca em tempo real de entregas via Id ou nome do cliente
 - Gerenciamento de entregas
 - Dashboard com comparativo de entregas ao longo dos meses
 - Filtragem de entregas por mês
