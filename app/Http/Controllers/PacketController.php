@@ -10,7 +10,7 @@ class PacketController extends Controller
 {
     public function index()
     {
-        //
+        return view('Packets.historic');
     }
 
     public function create()
