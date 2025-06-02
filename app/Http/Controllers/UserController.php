@@ -16,6 +16,14 @@ class UserController extends Controller
         ]);
     }
 
+    public function checkEmail(Request $request)
+    {
+        $email = $request->email;
+        $exists = User::where('email', $email)->exists();
+
+        return response()->json(['exists' => $exists]);
+    }
+
     public function store(Request $request)
     {
         $check = DB::table('users')

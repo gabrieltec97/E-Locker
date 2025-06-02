@@ -111,7 +111,7 @@
                                 <div class="col-12 col-lg-6">
                                     <span class="font-weight-bold modal-label">E-mail:</span>
                                     <input type="email" name="email" class="form-control input-format mt-3 mb-1">
-                                    <span class="text-danger font-weight-bold check-format">
+                                    <span class="text-danger font-weight-bold check-format" style="display:none;">
                                         <i class="fa-solid fa-circle-xmark"></i>&nbsp;
                                         Este e-mail já está sendo utilizado.
                                     </span>
@@ -189,6 +189,36 @@
 
             text.classList.add('d-none');
             spinner.classList.remove('d-none');
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const emailInput = document.querySelector('input[name="email"]');
+            const avisoEmail = emailInput.nextElementSibling; // Pega o elemento irmão, no caso o span.
+            avisoEmail.style.display = 'none'; // começa escondido
+
+            emailInput.addEventListener('input', function () { //Pegando o valor para cada vez que a tecla for pressionada.
+                const email = emailInput.value.trim();
+                if (email.length === 0) {
+                    avisoEmail.style.display = 'none';
+                    return;
+                }
+
+                fetch(`/verificar-email?email=${encodeURIComponent(email)}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.exists) {
+                            avisoEmail.style.display = 'block';
+                        } else {
+                            avisoEmail.style.display = 'none';
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Erro ao verificar email:', err);
+                        avisoEmail.style.display = 'none';
+                    });
+            });
         });
     </script>
 

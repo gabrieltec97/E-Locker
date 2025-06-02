@@ -18,3 +18,5 @@ Route::resource('unidades', UnitController::class);
 Route::resource('usuarios', UserController::class);
 Route::resource('blocos', BlockController::class);
 Route::resource('entregas', PacketController::class);
+
+Route::get('/verificar-email', [UserController::class, 'checkEmail']);
