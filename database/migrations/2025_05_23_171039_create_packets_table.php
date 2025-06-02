@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('packets', function (Blueprint $table) {
             $table->id();
-            $table->integer('unit');
-            $table->integer('block');
+            $table->string('unit');
             $table->string('owner');
-            $table->string('comments');
+            $table->string('comments')->nullable();
             $table->string('received_at');
             $table->string('received_by');
-            $table->string('withdrawn_at');
-            $table->string('withdrawn_by');
+            $table->string('withdrawn_at')->nullable();
+            $table->string('withdrawn_by')->nullable();
             $table->string('signature');
             $table->timestamps();
         });

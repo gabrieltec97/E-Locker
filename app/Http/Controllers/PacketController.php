@@ -23,7 +23,15 @@ class PacketController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $packet = new Packet();
+        $packet->unit = $request->unit;
+        $packet->owner = $request->recipient;
+        $packet->received_by = $request->receiver;
+        $packet->comments = $request->comments;
+        $packet->received_at = date('d/m/Y - H:i:s');
+        $packet->save();
+
+
     }
 
     public function show(Packet $packet)
