@@ -110,7 +110,11 @@
 
                                 <div class="col-12 col-lg-6">
                                     <span class="font-weight-bold modal-label">E-mail:</span>
-                                    <input type="email" name="email" class="form-control input-format mt-3">
+                                    <input type="email" name="email" class="form-control input-format mt-3 mb-1">
+                                    <span class="text-danger font-weight-bold check-format">
+                                        <i class="fa-solid fa-circle-xmark"></i>&nbsp;
+                                        Este e-mail já está sendo utilizado.
+                                    </span>
                                 </div>
 
                                 <div class="col-12 col-lg-6 mt-3">
