@@ -31,7 +31,7 @@ class PacketController extends Controller
         $packet->received_at = date('d/m/Y - H:i:s');
         $packet->save();
 
-
+        return redirect()->back()->with('msg-success', 'Entrega cadastrada com sucesso!');
     }
 
     public function show(Packet $packet)
