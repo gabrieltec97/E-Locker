@@ -28,6 +28,7 @@ class PacketController extends Controller
         $packet->owner = $request->recipient;
         $packet->received_by = $request->receiver;
         $packet->comments = $request->comments;
+        $packet->status = 'Aguardando Retirada';
         $packet->received_at = date('d/m/Y - H:i:s');
         $packet->save();
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('comments')->nullable();
             $table->string('received_at');
             $table->string('received_by');
+            $table->string('status');
             $table->string('withdrawn_at')->nullable();
             $table->string('withdrawn_by')->nullable();
             $table->string('signature');

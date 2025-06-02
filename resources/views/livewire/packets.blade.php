@@ -4,10 +4,12 @@
     <table class="table align-middle mb-0">
         <thead>
         <tr>
-            <th class="ps-2 text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unidade</th>
+            <th class="ps-2 text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id</th>
+            <th class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Unidade</th>
             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Destinatário</th>
             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Recebimento</th>
             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Recebido por</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
         </tr>
         </thead>
         <tbody>
@@ -15,16 +17,24 @@
             @foreach($packets as $packet)
                 <tr>
                     <td class="ps-2 align-middle">
-                        <h6 class="text-sm">{{ $packet->unit }}</h6>
+                        <h6 class="text-sm"><a href="{{ route('entregas.edit', $packet->id) }}">#{{ $packet->id }}</a></h6>
                     </td>
                     <td class="align-middle">
-                        <h6 class="text-sm">{{ $packet->owner }}</h6>
+                        <h6 class="text-sm"><a href="{{ route('entregas.edit', $packet->id) }}">{{ $packet->unit }}</a></h6>
+                    </td>
+                    <td class="align-middle">
+                        <h6 class="text-sm"><a href="{{ route('entregas.edit', $packet->id) }}">{{ $packet->owner }}</a></h6>
                     </td>
                     <td class="text-center align-middle">
-                        <h6 class="text-sm">{{ $packet->received_at }}</h6>
+                        <h6 class="text-sm"><a href="{{ route('entregas.edit', $packet->id) }}">{{ $packet->received_at }}</a></h6>
                     </td>
                     <td class="text-center align-middle">
-                        <h6 class="text-sm">{{ $packet->received_by }}</h6>
+                        <h6 class="text-sm"><a href="{{ route('entregas.edit', $packet->id) }}">{{ $packet->received_by }}</a></h6>
+                    </td>
+                    <td class="text-center align-middle">
+                        <h6 class="text-sm {{ $packet->status == 'Aguardando Retirada' ? 'text-warning' : 'text-success' }}">
+                            {{ $packet->status }}
+                        </h6>
                     </td>
                 </tr>
             @endforeach
