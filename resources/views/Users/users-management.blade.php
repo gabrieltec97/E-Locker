@@ -195,6 +195,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const emailInput = document.querySelector('input[name="email"]');
+            const getButton = document.getElementById('register');
             const avisoEmail = emailInput.nextElementSibling; // Pega o elemento irmão, no caso o span.
             avisoEmail.style.display = 'none'; // começa escondido
 
@@ -210,13 +211,16 @@
                     .then(data => {
                         if (data.exists) {
                             avisoEmail.style.display = 'block';
+                            getButton.disabled = true;
                         } else {
                             avisoEmail.style.display = 'none';
+                            getButton.disabled = false;
                         }
                     })
                     .catch(err => {
                         console.error('Erro ao verificar email:', err);
                         avisoEmail.style.display = 'none';
+                        getButton.disabled = false;
                     });
             });
         });
