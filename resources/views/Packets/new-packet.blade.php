@@ -117,12 +117,4 @@
             form.submit();
         });
     </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const registerBtn = document.getElementById('register');
-
-        });
-    </script>
-
 @endsection

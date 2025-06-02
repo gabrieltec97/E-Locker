@@ -17,19 +17,19 @@
             @foreach($packets as $packet)
                 <tr>
                     <td class="ps-2 align-middle">
-                        <h6 class="text-sm"><a href="{{ route('entregas.edit', $packet->id) }}">#{{ $packet->id }}</a></h6>
+                        <h6 class="text-sm"><a href="{{ route('entregas.show', $packet->id) }}">#{{ $packet->id }}</a></h6>
                     </td>
                     <td class="align-middle">
-                        <h6 class="text-sm"><a href="{{ route('entregas.edit', $packet->id) }}">{{ $packet->unit }}</a></h6>
+                        <h6 class="text-sm"><a href="{{ route('entregas.show', $packet->id) }}">{{ $packet->unit }}</a></h6>
                     </td>
                     <td class="align-middle">
-                        <h6 class="text-sm"><a href="{{ route('entregas.edit', $packet->id) }}">{{ $packet->owner }}</a></h6>
+                        <h6 class="text-sm"><a href="{{ route('entregas.show', $packet->id) }}">{{ $packet->owner }}</a></h6>
                     </td>
                     <td class="text-center align-middle">
-                        <h6 class="text-sm"><a href="{{ route('entregas.edit', $packet->id) }}">{{ $packet->received_at }}</a></h6>
+                        <h6 class="text-sm"><a href="{{ route('entregas.show', $packet->id) }}">{{ $packet->received_at }}</a></h6>
                     </td>
                     <td class="text-center align-middle">
-                        <h6 class="text-sm"><a href="{{ route('entregas.edit', $packet->id) }}">{{ $packet->received_by }}</a></h6>
+                        <h6 class="text-sm"><a href="{{ route('entregas.show', $packet->id) }}">{{ $packet->received_by }}</a></h6>
                     </td>
                     <td class="text-center align-middle">
                         <h6 class="text-sm {{ $packet->status == 'Aguardando Retirada' ? 'text-warning' : 'text-success' }}">
@@ -40,7 +40,7 @@
             @endforeach
         @else
             <tr>
-                <td colspan="4" class="text-center text-danger">Sem registros com este nome</td>
+                <td class="text-danger">Sem registros com este nome</td>
             </tr>
         @endif
         </tbody>
