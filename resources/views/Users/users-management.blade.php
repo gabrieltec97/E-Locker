@@ -134,7 +134,7 @@
                     </div>
                 </div>
                 <div class="modal-footer format-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
                     <button type="submit" class="btn btn-primary" id="register">
                         <span class="button-text"><i class="fa-solid fa-circle-check icon-format"></i> Cadastrar</span>
                         <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
