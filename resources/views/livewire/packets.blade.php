@@ -32,7 +32,7 @@
                         <h6 class="text-sm"><a href="{{ route('entregas.show', $packet->id) }}">{{ $packet->received_by }}</a></h6>
                     </td>
                     <td class="text-center align-middle">
-                        <h6 class="text-sm {{ $packet->status == 'Aguardando Retirada' ? 'text-warning' : 'text-success' }}">
+                        <h6 class="text-sm {{ $packet->status == 'Aguardando Retirada' ? 'text-primary' : 'text-success' }}">
                             {{ $packet->status }}
                         </h6>
                     </td>
