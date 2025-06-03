@@ -16,7 +16,6 @@ Front-end:
 - LavaCharts
 - Notyf
 - SweetAlert2
-- Alpine.Js
 
 Back-end:
 - PHP
