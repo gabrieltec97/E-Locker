@@ -23,7 +23,6 @@ Back-end:
 - MySql
 - Livewire
 - ACL
-- Axios
 
 ## ✨ Principais Funcionalidades
 
