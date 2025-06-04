@@ -23,6 +23,11 @@
     display: none !important;
 }
 
+.comments{
+    resize: none;
+    cursor: pointer;
+}
+
 .image-format{
     width: 100%;
     height: 300px;

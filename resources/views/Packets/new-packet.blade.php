@@ -55,13 +55,10 @@
 
                                     <div class="col-6 mt-3">
                                         <span class="font-weight-bold modal-label">Imagem:</span>
-
-                                        <!-- Contêiner da câmera -->
                                         <div id="camera-container" class="mt-2">
                                             <video id="webcam" autoplay playsinline class="input-format w-full max-w-md border rounded"></video>
                                         </div>
 
-                                        <!-- Campo escondido da imagem -->
                                         <input type="hidden" name="photo" id="photo">
 
                                         <!-- Pré-visualização -->
@@ -69,7 +66,6 @@
                                             <img id="preview" class="max-w-md border rounded" />
                                         </div>
 
-                                        <!-- Botões -->
                                         <div class="input-format mt-3">
                                             <button type="button" id="start-camera" class="btn btn-sm btn-primary">Ativar Câmera</button>
                                             <button type="button" id="capture" class="btn btn-sm btn-success hidden">Capturar</button>

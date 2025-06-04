@@ -13,8 +13,6 @@
                 <div class="card">
                     <div class="card-header pb-0">
                         <div class="row">
-
-                            <!-- Coluna do título -->
                             <div class="col-md-6 col-12">
                                 <h5 class="mb-0">Entrega nº{{ $packet->id }}</h5>
                                 <p class="text-sm mb-0">
@@ -22,58 +20,60 @@
                                 </p>
                             </div>
 
-                            <div class="col-md-6 col-12 d-flex justify-content-end gap-2 mt-2 mt-md-0">
-                                <button class="btn btn-primary" id="register">
-                                    <span class="button-text"><i class="fa-solid fa-circle-check icon-format"></i> Salvar alterações</span>
-                                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                                </button>
-                            </div>
+                            @if($packet->withdrawn_by == null)
+                                <div class="col-md-6 col-12 d-flex justify-content-end gap-2 mt-2 mt-md-0">
+                                    <button class="btn btn-primary" id="register">
+                                        <span class="button-text"><i class="fa-solid fa-circle-check icon-format"></i> Salvar alterações</span>
+                                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                            @endif
                         </div>
                     </div>
-                    <div class="card-body pb-2">
+                    <div class="card-body">
                         <div class="container-fluid">
                             <div class="row pb-2">
-                                <div class="col-12 col-lg-3">
+                                <div class="col-12 col-lg-4">
                                     <span class="font-weight-bold modal-label">Recebedor:</span>
                                     <input type="text" value="{{ $packet->received_by }}" class="form-control input-format mt-2 cursor-pointer" disabled>
                                 </div>
 
-                                <div class="col-12 col-lg-3">
+                                <div class="col-12 col-lg-4">
                                     <span class="font-weight-bold modal-label">Destinatário:</span>
                                     <input type="text" value="{{ $packet->owner }}" class="form-control input-format mt-2 cursor-pointer" disabled>
                                 </div>
 
-                                <div class="col-12 col-lg-3">
+                                <div class="col-12 col-lg-4">
                                     <span class="font-weight-bold modal-label">Unidade:</span>
                                     <input type="text" value="{{ $packet->unit }}" class="form-control input-format mt-2 cursor-pointer" disabled>
                                 </div>
 
-                                <div class="col-12 col-lg-3">
+                                <div class="col-12 mt-4">
                                     <span class="font-weight-bold modal-label ">Comentários:</span>
                                     <br>
                                     @if($packet->comments == null)
-                                        <span class="text-danger input-format">Sem comentários adicionados.</span>
+                                        <textarea class="form-control input-format mt-3 comments" cols="10" rows="5" disabled>Sem comentários adicionados</textarea>
                                     @else
-                                        <span class="text-dark input-format">{{ $packet->comments }}.</span>
+                                        <textarea class="form-control input-format mt-3 comments" cols="10" rows="5" disabled>{{ $packet->comments }}</textarea>
                                     @endif
                                 </div>
                             </div>
-
                                 <form action="{{ route('entregas.update', $packet->id) }}" method="post" id="upd-packet">
                                     @csrf
                                     @method('PUT')
                                     <div class="row mt-4">
                                         <div class="col-12 col-lg-6">
                                             <span class="font-weight-bold modal-label ">Status:</span>
-                                            <select name="status" class="form-control input-format cursor-pointer mt-2" id="">
+                                            <select name="status" class="form-control input-format mt-2" {{ ($packet->status == 'Retirado por terceiros' || $packet->status == 'Retirado pelo destinatário') ? 'disabled' : '' }}>
                                                 <option value="Cancelado" {{ $packet->status == 'Cancelado' ? 'selected' : '' }}>Cancelado</option>
                                                 <option value="Aguardando Retirada" {{ $packet->status == 'Aguardando Retirada' ? 'selected' : '' }}>Aguardando Retirada</option>
+                                                <option value="Retirado por terceiros" {{ $packet->status == 'Retirado por terceiros' ? 'selected' : '' }}>Retirado por terceiros</option>
                                                 <option value="Retirado pelo destinatário" {{ $packet->status == 'Retirado pelo destinatário' ? 'selected' : '' }}>Retirado pelo destinatário</option>
                                             </select>
                                         </div>
                                         <div class="col-12 col-lg-6">
                                             <span class="font-weight-bold modal-label">Retirado por:</span>
-                                            <input type="text" name="withdrawn"value="{{ $packet->withdrawn_by }}" class="form-control input-format mt-2">
+                                            <input type="text" name="withdrawn" value="{{ $packet->withdrawn_by }}" {{ $packet->withdrawn_by != null ? 'disabled' : '' }} class="form-control input-format mt-2">
                                         </div>
 
                                         @if($packet->signature == null)
