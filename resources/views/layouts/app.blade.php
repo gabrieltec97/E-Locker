@@ -16,6 +16,7 @@
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.1.0" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script src="{{ asset('assets/js/signature/signature.js') }}"></script>
     @livewireStyles
 </head>
 <body class="g-sidenav-show  bg-gray-100">

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+<script src="{{ asset('assets/js/signature/my-signature.js') }}"></script>
 
 @section('title')
     Entrega {{ $packet->id }} - Faça a gestão desta entrega.
@@ -76,6 +77,18 @@
 
                                         <div class="col-12 col-lg-6 mt-4">
                                             <span class="font-weight-bold modal-label">Assinatura:</span>
+                                            <div class="mt-4">
+                                                <span class="font-weight-bold">Assinatura:</span>
+                                                <div class="border rounded p-2" style="background: #f9f9f9;">
+                                                    <canvas id="signature-pad" width="400" height="200" class="border rounded bg-white"></canvas>
+
+                                                    <div class="mt-2">
+                                                        <button type="button" id="clear-signature" class="btn btn-sm btn-secondary">Limpar</button>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" name="signature" id="signature">
+                                            </div>
+
                                         </div>
 
                                         <div class="col-12 col-lg-6 mt-3">
