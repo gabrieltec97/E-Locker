@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Packet;
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 class PacketController extends Controller
 {
@@ -32,6 +34,35 @@ class PacketController extends Controller
      */
     public function store(Request $request)
     {
+        //Verificações de imagem.
+        $request->validate([
+            'photo' => 'required',
+        ]);
+
+        $photo = $request->input('photo');
+
+        // Remove prefixo base64
+        $image = str_replace('data:image/png;base64,', '', $photo);
+        $image = str_replace(' ', '+', $image);
+        $imageData = base64_decode($image);
+
+        // Define nome do arquivo
+        $filename = Str::uuid() . '.png';
+
+        // Caminho completo
+        $path = public_path('uploads/fotos');
+        if (!File::exists($path)) {
+            File::makeDirectory($path, 0755, true); // cria diretório se não existir
+        }
+
+        $fullPath = $path . '/' . $filename;
+
+        // Salva o arquivo
+        file_put_contents($fullPath, $imageData);
+
+        // Caminho acessível publicamente (opcional salvar no banco)
+        $publicPath = 'uploads/fotos/' . $filename;
+
         $packet = new Packet();
         $packet->unit = $request->unit;
         $packet->owner = $request->recipient;
@@ -39,8 +70,9 @@ class PacketController extends Controller
         $packet->comments = $request->comments;
         $packet->status = 'Aguardando Retirada';
         $packet->received_at = date('d/m/Y - H:i:s');
-        $packet->save();
+        $packet->image = $publicPath;
 
+        $packet->save();
         return redirect()->back()->with('msg-success', 'Entrega cadastrada com sucesso!');
     }
 
