@@ -62,7 +62,7 @@
                                     @csrf
                                     @method('PUT')
                                     <div class="row mt-4">
-                                        <div class="col-12 col-lg-6">
+                                        <div class="col-12 col-lg-4">
                                             <span class="font-weight-bold modal-label ">Status:</span>
                                             <select name="status" class="form-control input-format mt-2" {{ ($packet->status == 'Retirado por terceiros' || $packet->status == 'Retirado pelo destinatário') ? 'disabled' : '' }}>
                                                 <option value="Cancelado" {{ $packet->status == 'Cancelado' ? 'selected' : '' }}>Cancelado</option>
@@ -71,10 +71,18 @@
                                                 <option value="Retirado pelo destinatário" {{ $packet->status == 'Retirado pelo destinatário' ? 'selected' : '' }}>Retirado pelo destinatário</option>
                                             </select>
                                         </div>
-                                        <div class="col-12 col-lg-6">
+
+                                        <div class="col-12 col-lg-4">
                                             <span class="font-weight-bold modal-label">Retirado por:</span>
                                             <input type="text" name="withdrawn" value="{{ $packet->withdrawn_by }}" {{ $packet->withdrawn_by != null ? 'disabled' : '' }} class="form-control input-format mt-2">
                                         </div>
+
+                                        @if($packet->withdrawn_at != null)
+                                            <div class="col-12 col-lg-4">
+                                                <span class="font-weight-bold modal-label">Retirado em:</span>
+                                                <input type="text" value="{{ $packet->withdrawn_at }}" class="form-control input-format mt-2" disabled>
+                                            </div>
+                                        @endif
 
                                         @if($packet->signature == null)
                                             <div class="col-12 col-lg-6 mt-4">
