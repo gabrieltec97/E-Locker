@@ -101,6 +101,13 @@ class PacketController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        if ($request->status == 'Cancelado'){
+            $packet = Packet::find($id);
+            $packet->status = $request->status;
+            $packet->save();
+
+            return redirect()->route('entregas.index')->with('msg-success', 'Registro cancelado com sucesso!');
+        }
         //Validação da assinatura.
         $request->validate([
             'signature' => 'required',

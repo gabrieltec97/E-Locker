@@ -53,6 +53,11 @@
                                         </select>
                                     </div>
 
+                                    <div class="col-12 mt-3">
+                                        <span class="font-weight-bold modal-label">Comentários:</span>
+                                        <textarea name="comments" class="form-control mt-2 format-textarea modal-label" rows="5"></textarea>
+                                    </div>
+
                                     <div class="col-6 mt-3">
                                         <span class="font-weight-bold modal-label">Imagem:</span>
                                         <div id="camera-container" class="mt-2">
@@ -71,12 +76,6 @@
                                             <button type="button" id="capture" class="btn btn-sm btn-success hidden">Capturar</button>
                                             <button type="button" id="retake" class="btn btn-sm btn-warning hidden">Refazer</button>
                                         </div>
-                                    </div>
-
-
-                                    <div class="col-12 mt-3">
-                                        <span class="font-weight-bold modal-label">Comentários:</span>
-                                        <textarea name="comments" class="form-control mt-2 format-textarea modal-label" rows="5"></textarea>
                                     </div>
                                 </div>
                             </form>

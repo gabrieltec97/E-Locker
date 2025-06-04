@@ -15,12 +15,18 @@
                         <div class="row">
                             <div class="col-md-6 col-12">
                                 <h5 class="mb-0">Entrega nº{{ $packet->id }}</h5>
-                                <p class="text-sm mb-0">
-                                    <span class="font-weight-bold">Administre</span> esta entrega
-                                </p>
+                                @if($packet->withdrawn_by == null)
+                                    <p class="text-sm mb-0">
+                                        <span class="font-weight-bold">Administre</span> esta entrega
+                                    </p>
+                                @else
+                                    <p class="text-sm mb-0">
+                                        <span class="font-weight-bold text-success">Retirado por {{ $packet->withdrawn_by }} em {{ $packet->withdrawn_at }}</span>
+                                    </p>
+                                @endif
                             </div>
 
-                            @if($packet->withdrawn_by == null)
+                            @if($packet->withdrawn_by == null || $packet->status != 'Cancelado')
                                 <div class="col-md-6 col-12 d-flex justify-content-end gap-2 mt-2 mt-md-0">
                                     <button class="btn btn-primary" id="register">
                                         <span class="button-text"><i class="fa-solid fa-circle-check icon-format"></i> Salvar alterações</span>
