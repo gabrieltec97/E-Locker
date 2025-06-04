@@ -55,25 +55,28 @@
 
                                     <div class="col-6 mt-3">
                                         <span class="font-weight-bold modal-label">Imagem:</span>
-                                        <div id="camera-container">
-                                            <video id="webcam" autoplay playsinline class="mt-2 input-format w-full max-w-md border rounded"></video>
 
-                                            <canvas id="canvas" class="hidden"></canvas>
+                                        <!-- Contêiner da câmera -->
+                                        <div id="camera-container" class="mt-2">
+                                            <video id="webcam" autoplay playsinline class="input-format w-full max-w-md border rounded"></video>
                                         </div>
 
-                                        <div class="cam-format">
-                                            <button type="button" id="start-camera" class="btn">Ativar Câmera</button>
-                                            <button type="button" id="capture" class="btn hidden">Capturar</button>
-                                            <button type="button" id="retake" class="btn hidden">Refazer</button>
-                                        </div>
-
+                                        <!-- Campo escondido da imagem -->
                                         <input type="hidden" name="photo" id="photo">
 
-                                        <div id="preview-container" class="mt-2 hidden">
-                                            <p>Pré-visualização da imagem:</p>
+                                        <!-- Pré-visualização -->
+                                        <div id="preview-container" class="mt-3 hidden input-format">
                                             <img id="preview" class="max-w-md border rounded" />
                                         </div>
+
+                                        <!-- Botões -->
+                                        <div class="input-format mt-3">
+                                            <button type="button" id="start-camera" class="btn btn-sm btn-primary">Ativar Câmera</button>
+                                            <button type="button" id="capture" class="btn btn-sm btn-success hidden">Capturar</button>
+                                            <button type="button" id="retake" class="btn btn-sm btn-warning hidden">Refazer</button>
+                                        </div>
                                     </div>
+
 
                                     <div class="col-12 mt-3">
                                         <span class="font-weight-bold modal-label">Comentários:</span>

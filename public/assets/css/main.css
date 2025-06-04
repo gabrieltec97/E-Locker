@@ -19,10 +19,9 @@
     margin-left: -25px;
 }
 
-/*.cam-format{*/
-/*    margin-left: -25px;*/
-/*    margin-top: -140px;*/
-/*}*/
+.hidden{
+    display: none !important;
+}
 
 .image-format{
     width: 100%;
