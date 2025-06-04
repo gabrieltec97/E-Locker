@@ -57,6 +57,7 @@
                                         <span class="font-weight-bold modal-label">Imagem:</span>
                                         <div id="camera-container">
                                             <video id="webcam" autoplay playsinline class="mt-2 input-format w-full max-w-md border rounded"></video>
+
                                             <canvas id="canvas" class="hidden"></canvas>
                                         </div>
 

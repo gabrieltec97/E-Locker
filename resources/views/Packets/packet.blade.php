@@ -76,12 +76,12 @@
 
                                         <div class="col-12 col-lg-6 mt-4">
                                             <span class="font-weight-bold modal-label">Assinatura:</span>
-                                            <textarea name="comments" class="form-control mt-2 format-textarea modal-label" rows="5"></textarea>
                                         </div>
 
-                                        <div class="col-12 col-lg-6 mt-4">
-                                            <span class="font-weight-bold modal-label">Comentários:</span>
-                                            <textarea name="comments" class="form-control mt-2 format-textarea modal-label" rows="5"></textarea>
+                                        <div class="col-12 col-lg-6 mt-3">
+                                            <span class="font-weight-bold modal-label">Imagem:</span>
+                                            <br>
+                                            <img src="{{ asset($packet->image) }}" class="image-format mt-3">
                                         </div>
                                     </div>
                                 </form>

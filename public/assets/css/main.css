@@ -24,6 +24,13 @@
 /*    margin-top: -140px;*/
 /*}*/
 
+.image-format{
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    margin-left: -25px;
+}
+
 .icon-format
 {
     margin-right: 4px;
