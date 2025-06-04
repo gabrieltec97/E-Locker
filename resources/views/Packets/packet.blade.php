@@ -73,19 +73,25 @@
                                         </div>
                                         <div class="col-12 col-lg-6">
                                             <span class="font-weight-bold modal-label">Retirado por:</span>
-                                            <input type="text" name="withdrawn" class="form-control input-format mt-2">
+                                            <input type="text" name="withdrawn"value="{{ $packet->withdrawn_by }}" class="form-control input-format mt-2">
                                         </div>
 
-                                        <div class="col-12 col-lg-6 mt-4">
-                                            <span class="font-weight-bold modal-label">Assinatura:</span>
-                                            <div class="border rounded p-2 input-format mt-2" style="background: #f9f9f9;">
-                                                <canvas id="signature-pad" width="400" height="200" class="border rounded bg-white"></canvas>
-                                                <div class="mt-2">
-                                                    <button type="button" id="clear-signature" class="btn btn-sm btn-secondary">Limpar</button>
+                                        @if($packet->signature == null)
+                                            <div class="col-12 col-lg-6 mt-4">
+                                                <span class="font-weight-bold modal-label">Assinatura:</span>
+                                                <div class="p-2 mt-2">
+                                                    <canvas id="signature-pad" width="400" height="200" class="border rounded bg-white signature-format"></canvas>
+                                                    <button type="button" id="clear-signature" class="btn btn-sm btn-secondary signature-format mt-3">Limpar</button>
                                                 </div>
+                                                <input type="hidden" name="signature" id="signature">
                                             </div>
-                                            <input type="hidden" name="signature" id="signature">
-                                        </div>
+                                        @else
+                                            <div class="col-12 col-lg-6 mt-3">
+                                                <span class="font-weight-bold modal-label">Assinatura do recebedor:</span>
+                                                <br>
+                                                <img src="{{ asset($packet->signature) }}" class="image-format mt-3">
+                                            </div>
+                                        @endif
 
                                         <div class="col-12 col-lg-6 mt-3">
                                             <span class="font-weight-bold modal-label">Imagem:</span>
