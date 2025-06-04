@@ -1,5 +1,3 @@
-let stream = null;
-
 document.addEventListener('DOMContentLoaded', () => {
     const webcam = document.getElementById('webcam');
     const canvas = document.getElementById('canvas');
@@ -10,9 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const previewContainer = document.getElementById('preview-container');
     const preview = document.getElementById('preview');
 
+    let stream = null;
+
     startButton.addEventListener('click', async () => {
         stream = await navigator.mediaDevices.getUserMedia({ video: true });
         webcam.srcObject = stream;
+        webcam.classList.remove('hidden');
         startButton.classList.add('hidden');
         captureButton.classList.remove('hidden');
     });
@@ -23,13 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
         canvas.height = webcam.videoHeight;
         context.drawImage(webcam, 0, 0, canvas.width, canvas.height);
 
-        // Converter imagem para base64
+        // Gera imagem
         const imageData = canvas.toDataURL('image/png');
         photoInput.value = imageData;
         preview.src = imageData;
 
+        // Esconde tudo menos o preview
         webcam.classList.add('hidden');
-        canvas.classList.remove('hidden');
+        canvas.classList.add('hidden'); // canvas não aparece
         captureButton.classList.add('hidden');
         retakeButton.classList.remove('hidden');
         previewContainer.classList.remove('hidden');
@@ -37,11 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     retakeButton.addEventListener('click', () => {
         webcam.classList.remove('hidden');
-        canvas.classList.add('hidden');
         captureButton.classList.remove('hidden');
         retakeButton.classList.add('hidden');
         previewContainer.classList.add('hidden');
         photoInput.value = '';
+        preview.src = '';
     });
 });
-

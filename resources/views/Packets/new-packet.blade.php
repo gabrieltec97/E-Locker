@@ -56,11 +56,11 @@
                                     <div class="col-6 mt-3">
                                         <span class="font-weight-bold modal-label">Imagem:</span>
                                         <div id="camera-container">
-                                            <video id="webcam" autoplay playsinline class="w-full max-w-md border rounded"></video>
+                                            <video id="webcam" autoplay playsinline class="mt-2 input-format w-full max-w-md border rounded"></video>
                                             <canvas id="canvas" class="hidden"></canvas>
                                         </div>
 
-                                        <div class="mt-2">
+                                        <div class="cam-format">
                                             <button type="button" id="start-camera" class="btn">Ativar Câmera</button>
                                             <button type="button" id="capture" class="btn hidden">Capturar</button>
                                             <button type="button" id="retake" class="btn hidden">Refazer</button>
