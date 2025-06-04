@@ -101,7 +101,35 @@ class PacketController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //Validação da assinatura.
+        $request->validate([
+            'signature' => 'required',
+        ]);
+
+        $dataUrl = $request->input('signature');
+
+        $image = str_replace('data:image/png;base64,', '', $dataUrl);
+        $image = str_replace(' ', '+', $image);
+        $imageData = base64_decode($image);
+
+        $filename = Str::uuid() . '.png';
+        $path = public_path('uploads/signatures');
+
+        if (!File::exists($path)) {
+            File::makeDirectory($path, 0755, true);
+        }
+
+        $fullPath = $path . '/' . $filename;
+        file_put_contents($fullPath, $imageData);
+
+        $publicPath = 'uploads/signatures/' . $filename;
+
+        $packet = Packet::find($id);
+        $packet->withdrawn_at = date('d/m/Y - H:i:s');
+        $packet->withdrawn_by = $request->withdrawn;
+        $packet->status = $request->status;
+        $packet->signature = $publicPath;
+        $packet->save();
     }
 
     /**

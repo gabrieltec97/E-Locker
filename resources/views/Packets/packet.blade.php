@@ -59,15 +59,16 @@
                                 </div>
                             </div>
 
-                                <form action="#" method="post" id="upd-packet">
+                                <form action="{{ route('entregas.update', $packet->id) }}" method="post" id="upd-packet">
                                     @csrf
+                                    @method('PUT')
                                     <div class="row mt-4">
                                         <div class="col-12 col-lg-6">
                                             <span class="font-weight-bold modal-label ">Status:</span>
                                             <select name="status" class="form-control input-format cursor-pointer mt-2" id="">
-                                                <option value="" {{ $packet->status == 'Cancelado' ? 'selected' : '' }}>Cancelado</option>
-                                                <option value="" {{ $packet->status == 'Aguardando Retirada' ? 'selected' : '' }}>Aguardando Retirada</option>
-                                                <option value="" {{ $packet->status == 'Retirado pelo destinatário' ? 'selected' : '' }}>Retirado pelo destinatário</option>
+                                                <option value="Cancelado" {{ $packet->status == 'Cancelado' ? 'selected' : '' }}>Cancelado</option>
+                                                <option value="Aguardando Retirada" {{ $packet->status == 'Aguardando Retirada' ? 'selected' : '' }}>Aguardando Retirada</option>
+                                                <option value="Retirado pelo destinatário" {{ $packet->status == 'Retirado pelo destinatário' ? 'selected' : '' }}>Retirado pelo destinatário</option>
                                             </select>
                                         </div>
                                         <div class="col-12 col-lg-6">
@@ -77,18 +78,13 @@
 
                                         <div class="col-12 col-lg-6 mt-4">
                                             <span class="font-weight-bold modal-label">Assinatura:</span>
-                                            <div class="mt-4">
-                                                <span class="font-weight-bold">Assinatura:</span>
-                                                <div class="border rounded p-2" style="background: #f9f9f9;">
-                                                    <canvas id="signature-pad" width="400" height="200" class="border rounded bg-white"></canvas>
-
-                                                    <div class="mt-2">
-                                                        <button type="button" id="clear-signature" class="btn btn-sm btn-secondary">Limpar</button>
-                                                    </div>
+                                            <div class="border rounded p-2 input-format mt-2" style="background: #f9f9f9;">
+                                                <canvas id="signature-pad" width="400" height="200" class="border rounded bg-white"></canvas>
+                                                <div class="mt-2">
+                                                    <button type="button" id="clear-signature" class="btn btn-sm btn-secondary">Limpar</button>
                                                 </div>
-                                                <input type="hidden" name="signature" id="signature">
                                             </div>
-
+                                            <input type="hidden" name="signature" id="signature">
                                         </div>
 
                                         <div class="col-12 col-lg-6 mt-3">
@@ -140,18 +136,5 @@
                 })
         </script>
     @endif
-
-    <script>
-        document.getElementById('register').addEventListener('click', function () {
-            const button = this;
-            const text = button.querySelector('.button-text');
-            const spinner = button.querySelector('.spinner-border');
-            const form = document.getElementById('upd-packet');
-
-            text.classList.add('d-none');
-            spinner.classList.remove('d-none');
-            form.submit();
-        });
-    </script>
 
 @endsection

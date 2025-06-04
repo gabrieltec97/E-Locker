@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('signature-pad');
 
     if (!canvas) {
-        console.warn('Canvas de assinatura não encontrado!');
+        console.warn('Canvas não encontrado');
         return;
     }
 
@@ -12,18 +12,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const clearButton = document.getElementById('clear-signature');
     const signatureInput = document.getElementById('signature');
+    const form = document.getElementById('upd-packet');
 
     clearButton.addEventListener('click', () => {
         signaturePad.clear();
         signatureInput.value = '';
     });
 
-    const form = document.getElementById('upd-packet');
-    if (form) {
-        form.addEventListener('submit', () => {
-            if (!signaturePad.isEmpty()) {
-                signatureInput.value = signaturePad.toDataURL('image/png');
-            }
-        });
-    }
+    form.addEventListener('submit', () => {
+        if (!signaturePad.isEmpty()) {
+            signatureInput.value = signaturePad.toDataURL('image/png');
+        } else {
+            signatureInput.value = '';
+        }
+    });
+
+    // Submissão via botão customizado
+    document.getElementById('register').addEventListener('click', function () {
+        const button = this;
+        const text = button.querySelector('.button-text');
+        const spinner = button.querySelector('.spinner-border');
+
+        text.classList.add('d-none');
+        spinner.classList.remove('d-none');
+
+        // Dispara o evento 'submit' para que o input oculto seja preenchido
+        form.dispatchEvent(new Event('submit', { cancelable: true }));
+
+        // Aguarde pequeno delay para garantir preenchimento do input
+        setTimeout(() => form.submit(), 100);
+    });
 });
