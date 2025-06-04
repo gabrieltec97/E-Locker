@@ -1,5 +1,6 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+<script src="{{ asset('assets/js/camera/webcam.js') }}"></script>
 
 @section('title', 'Blocos e Unidades - Gerenciamento completo de unidades.')
 
@@ -54,6 +55,23 @@
 
                                     <div class="col-6 mt-3">
                                         <span class="font-weight-bold modal-label">Imagem:</span>
+                                        <div id="camera-container">
+                                            <video id="webcam" autoplay playsinline class="w-full max-w-md border rounded"></video>
+                                            <canvas id="canvas" class="hidden"></canvas>
+                                        </div>
+
+                                        <div class="mt-2">
+                                            <button type="button" id="start-camera" class="btn">Ativar Câmera</button>
+                                            <button type="button" id="capture" class="btn hidden">Capturar</button>
+                                            <button type="button" id="retake" class="btn hidden">Refazer</button>
+                                        </div>
+
+                                        <input type="hidden" name="photo" id="photo">
+
+                                        <div id="preview-container" class="mt-2 hidden">
+                                            <p>Pré-visualização da imagem:</p>
+                                            <img id="preview" class="max-w-md border rounded" />
+                                        </div>
                                     </div>
 
                                     <div class="col-12 mt-3">

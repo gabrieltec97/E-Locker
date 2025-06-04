@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('received_at');
             $table->string('received_by');
             $table->string('status');
+            $table->string('image');
             $table->string('withdrawn_at')->nullable();
             $table->string('withdrawn_by')->nullable();
             $table->string('signature');
