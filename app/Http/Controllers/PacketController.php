@@ -71,8 +71,8 @@ class PacketController extends Controller
         $packet->status = 'Aguardando Retirada';
         $packet->received_at = date('d/m/Y - H:i:s');
         $packet->image = $publicPath;
-
         $packet->save();
+
         return redirect()->back()->with('msg-success', 'Entrega cadastrada com sucesso!');
     }
 
@@ -130,6 +130,8 @@ class PacketController extends Controller
         $packet->status = $request->status;
         $packet->signature = $publicPath;
         $packet->save();
+
+        return redirect()->route('entregas.index')->with('msg-success', 'Produto entregue com sucesso!');
     }
 
     /**

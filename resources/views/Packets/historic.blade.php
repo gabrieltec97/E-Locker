@@ -28,4 +28,39 @@
         </div>
     </div>
 
+    @if(session('msg-success'))
+        <script>
+            const notyf = new Notyf({
+                position: {
+                    x: 'right',
+                    y: 'top',
+                }
+            });
+
+            notyf
+                .success({
+                    message: '{{ session('msg-success') }}',
+                    dismissible: true,
+                    duration: 5000
+                });
+        </script>
+    @endif
+
+    @if(session('msg-error'))
+        <script>
+            const notyf = new Notyf({
+                position: {
+                    x: 'right',
+                    y: 'top',
+                }
+            });
+
+            notyf
+                .error({
+                    message: '{{ session('msg-error') }}',
+                    dismissible: true,
+                    duration: 5000
+                })
+        </script>
+    @endif
 @endsection
