@@ -16,9 +16,15 @@
                             <div class="col-md-6 col-12">
                                 <h5 class="mb-0">Entrega nº{{ $packet->id }}</h5>
                                 @if($packet->withdrawn_by == null)
-                                    <p class="text-sm mb-0">
-                                        <span class="font-weight-bold">Administre</span> esta entrega
-                                    </p>
+                                    @if($packet->status == 'Cancelado')
+                                        <p class="text-sm mb-0">
+                                            <span class="font-weight-bold"><span class="text-danger">{{ $packet->status }}</span></span>
+                                        </p>
+                                    @else
+                                        <p class="text-sm mb-0">
+                                            <span class="font-weight-bold">Administre</span> esta entrega
+                                        </p>
+                                    @endif
                                 @else
                                     <p class="text-sm mb-0">
                                         <span class="font-weight-bold text-success">Retirado por {{ $packet->withdrawn_by }} em {{ $packet->withdrawn_at }}</span>
@@ -26,13 +32,15 @@
                                 @endif
                             </div>
 
-                            @if($packet->withdrawn_by == null || $packet->status != 'Cancelado')
-                                <div class="col-md-6 col-12 d-flex justify-content-end gap-2 mt-2 mt-md-0">
-                                    <button class="btn btn-primary" id="register">
-                                        <span class="button-text"><i class="fa-solid fa-circle-check icon-format"></i> Salvar alterações</span>
-                                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                                    </button>
-                                </div>
+                            @if($packet->status != 'Cancelado')
+                                @if($packet->withdrawn_by == null )
+                                    <div class="col-md-6 col-12 d-flex justify-content-end gap-2 mt-2 mt-md-0">
+                                        <button class="btn btn-primary" id="register">
+                                            <span class="button-text"><i class="fa-solid fa-circle-check icon-format"></i> Salvar alterações</span>
+                                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                @endif
                             @endif
                         </div>
                     </div>
@@ -78,6 +86,7 @@
                                             </select>
                                         </div>
 
+
                                         <div class="col-12 col-lg-4">
                                             <span class="font-weight-bold modal-label">Retirado por:</span>
                                             <input type="text" name="withdrawn" value="{{ $packet->withdrawn_by }}" {{ $packet->withdrawn_by != null ? 'disabled' : '' }} class="form-control input-format mt-2">
@@ -91,14 +100,17 @@
                                         @endif
 
                                         @if($packet->signature == null)
-                                            <div class="col-12 col-lg-6 mt-4">
-                                                <span class="font-weight-bold modal-label">Assinatura:</span>
-                                                <div class="p-2 mt-2">
-                                                    <canvas id="signature-pad" width="400" height="200" class="border rounded bg-white signature-format"></canvas>
-                                                    <button type="button" id="clear-signature" class="btn btn-sm btn-secondary signature-format mt-3">Limpar</button>
+                                            @if($packet->status != 'Cancelado')
+                                                <div class="col-12 col-lg-6 mt-4">
+                                                    <span class="font-weight-bold modal-label">Assinatura:</span>
+                                                    <div class="p-2 mt-2">
+                                                        <canvas id="signature-pad" width="400" height="200" class="border rounded bg-white signature-format"></canvas>
+                                                        <br>
+                                                        <button type="button" id="clear-signature" class="btn btn-sm btn-secondary signature-format mt-3">Limpar</button>
+                                                    </div>
+                                                    <input type="hidden" name="signature" id="signature">
                                                 </div>
-                                                <input type="hidden" name="signature" id="signature">
-                                            </div>
+                                            @endif
                                         @else
                                             <div class="col-12 col-lg-6 mt-3">
                                                 <span class="font-weight-bold modal-label">Assinatura do recebedor:</span>
