@@ -16,6 +16,7 @@ Front-end:
 - LavaCharts
 - Notyf
 - SweetAlert2
+- Signature Pad
 
 Back-end:
 - PHP
