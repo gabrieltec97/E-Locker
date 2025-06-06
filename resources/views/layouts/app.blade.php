@@ -235,73 +235,7 @@
 <script src="../assets/js/plugins/chartjs.min.js"></script>
 <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
 <script>
-    var ctx = document.getElementById("chart-bars").getContext("2d");
-
-    new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-            datasets: [{
-                label: "Sales",
-                tension: 0.4,
-                borderWidth: 0,
-                borderRadius: 4,
-                borderSkipped: false,
-                backgroundColor: "#fff",
-                data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
-                maxBarThickness: 6
-            }, ],
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false,
-                }
-            },
-            interaction: {
-                intersect: false,
-                mode: 'index',
-            },
-            scales: {
-                y: {
-                    grid: {
-                        drawBorder: false,
-                        display: false,
-                        drawOnChartArea: false,
-                        drawTicks: false,
-                    },
-                    ticks: {
-                        suggestedMin: 0,
-                        suggestedMax: 500,
-                        beginAtZero: true,
-                        padding: 15,
-                        font: {
-                            size: 14,
-                            family: "Inter",
-                            style: 'normal',
-                            lineHeight: 2
-                        },
-                        color: "#fff"
-                    },
-                },
-                x: {
-                    grid: {
-                        drawBorder: false,
-                        display: false,
-                        drawOnChartArea: false,
-                        drawTicks: false
-                    },
-                    ticks: {
-                        display: false
-                    },
-                },
-            },
-        },
-    });
-
-
+    
     var ctx2 = document.getElementById("chart-line").getContext("2d");
 
     var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
@@ -319,9 +253,13 @@
     new Chart(ctx2, {
         type: "line",
         data: {
-            labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            labels: [
+                "Janeiro", "Fevereiro", "Março", "Abril", "Maio", 
+                "Junho", "Julho", "Agosto", "Setembro", "Outubro",
+                "Novembro", "Dezembro"
+            ],
             datasets: [{
-                label: "Mobile apps",
+                label: "Entregas recebidas",
                 tension: 0.4,
                 borderWidth: 0,
                 pointRadius: 0,
@@ -329,12 +267,12 @@
                 borderWidth: 3,
                 backgroundColor: gradientStroke1,
                 fill: true,
-                data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+                data: [50, 40, 300, 220, 500, 250, 400, 230, 500, 250, 300, 419, 314],
                 maxBarThickness: 6
 
             },
                 {
-                    label: "Websites",
+                    label: "Entregas retiradas",
                     tension: 0.4,
                     borderWidth: 0,
                     pointRadius: 0,
@@ -342,7 +280,7 @@
                     borderWidth: 3,
                     backgroundColor: gradientStroke2,
                     fill: true,
-                    data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+                    data: [30, 90, 40, 140, 290, 290, 340, 230, 400, 246, 300, 409, 312],
                     maxBarThickness: 6
                 },
             ],

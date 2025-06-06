@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('comments')->nullable();
             $table->string('received_at');
             $table->string('received_by');
+            $table->string('day');
+            $table->string('month');
             $table->string('status');
             $table->string('image');
             $table->string('withdrawn_at')->nullable();
