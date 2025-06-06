@@ -420,8 +420,26 @@
             </div>
         </div> 
     </div>
+<script src="../assets/js/plugins/chartjs.min.js"></script>
 
-    <script>
+<script>
+    var dataTotal = <?php echo json_encode($dataTotal); ?>;
+    var dataTaken = <?php echo json_encode($dataTaken); ?>;
+    
+    var ctx2 = document.getElementById("chart-line").getContext("2d");
+
+    var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
+    gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+    gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
+
+    var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
+    gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+    gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
+
     new Chart(ctx2, {
         type: "line",
         data: {
@@ -439,7 +457,7 @@
                 borderWidth: 3,
                 backgroundColor: gradientStroke1,
                 fill: true,
-                data: [50, 40, 300, 220, 500, 250, 400, 230, 500, 250, 300, 419, 314],
+                data: dataTotal, 
                 maxBarThickness: 6
 
             },
@@ -452,7 +470,7 @@
                     borderWidth: 3,
                     backgroundColor: gradientStroke2,
                     fill: true,
-                    data: [30, 90, 40, 140, 290, 290, 340, 230, 400, 246, 300, 409, 312],
+                    data: dataTaken,
                     maxBarThickness: 6
                 },
             ],
@@ -513,5 +531,5 @@
             },
         },
     });
-</script>    
+    </script>
 @endsection

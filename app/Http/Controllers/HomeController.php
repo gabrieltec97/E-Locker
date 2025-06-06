@@ -74,9 +74,10 @@ class HomeController extends Controller
             array_push($dataTotal, $packets);
 }
 
-
-        dd($dataTotal);
-        return view('dashboard');
+        return view('dashboard', [
+            'dataTotal' => $dataTotal,
+            'dataTaken' => $dataTaken,
+        ]);
     }
 
 }
