@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Unit;
 
 class HomeController extends Controller
 {
@@ -126,7 +127,51 @@ class HomeController extends Controller
                 ->where('status', 'Cancelado')
                 ->where('month', $this->monthConverter())
                 ->where('comments', '!=', null)
-                ->count();         
+                ->count();
+                
+        
+    //Funcionalidade do item 3.            
+    $allUnits = [];
+    $units = Unit::all();
+
+    foreach($units as $unit){
+        array_push($allUnits, $unit->number . ' - BL 0' . $unit->block);
+    }
+
+    $count = [];
+
+    foreach($allUnits as $unicUnit){
+        $countTotal = DB::table('packets')
+            ->where('status', '!=', 'Cancelado')
+            ->where('month', $this->monthConverter())
+            ->where('unit', $unicUnit)
+            ->count();
+
+        $pickedUp = DB::table('packets')
+                ->where(function($query) {
+                    $query->where('status', 'Retirado pelo destinatário')
+                        ->orWhere('status', 'Retirado por terceiros');
+                })
+                ->where('month', $this->monthConverter())
+                 ->where('unit', $unicUnit)
+                ->count();     
+
+        if($countTotal != 0){
+            $percent = ($pickedUp * 100) / $countTotal;
+        }else{
+            $percent = 0;
+        }        
+
+        array_push($count, ['unit' => $unicUnit, 'total' => $countTotal, 'pickedUp' => $pickedUp, 'percent' => $percent]);  
+    }
+
+        // Ordenando o array $count pela quantidade total de itens, de forma decrescente.
+        usort($count, function($a, $b) {
+            return $b['total'] - $a['total'];
+        });
+
+        // Pegando os 5 primeiros itens (ou menos, se não houverem 5 unidades).
+        $count = array_slice($count, 0, 5);
 
         return view('dashboard', [
             'dataTotal' => $dataTotal,
@@ -138,7 +183,8 @@ class HomeController extends Controller
             'totalOthers' => $totalOthers,
             'totalWithdrawn' => $totalWithdrawn,
             'cancelled' => $cancelled,
-            'waiting' => $waiting
+            'waiting' => $waiting,
+            'count' => $count
         ]);
     }
 
