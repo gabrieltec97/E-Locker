@@ -17,9 +17,9 @@
                                     </div>
                                     <h5 class="text-white font-weight-bolder mb-0 mt-3">
                                         @if ($totalReceivedToday == 0 || $totalReceivedToday == 1)
-                                            {{ $totalReceivedToday }} entrega
+                                            {{ $totalReceivedToday }} Entrega
                                         @else
-                                            {{ $totalReceivedToday }} entregas
+                                            {{ $totalReceivedToday }} Entregas
                                         @endif
                                     </h5>
                                     <span class="text-white text-sm">
@@ -57,16 +57,16 @@
                                     </div>
                                     <h5 class="text-white font-weight-bolder mb-0 mt-3">
                                         @if ($totalTakenToday == 0 || $totalTakenToday == 1)
-                                            {{ $totalTakenToday }} entrega
+                                            {{ $totalTakenToday }} Retirada
                                         @else
-                                            {{ $totalTakenToday }} entregas
+                                            {{ $totalTakenToday }} Retiradas
                                         @endif
                                     </h5>
                                     <span class="text-white text-sm">
                                          @if ($totalTakenToday == 0 || $totalTakenToday == 1)
-                                            Retirada hoje
+                                            Realizada hoje
                                         @else
-                                            Retiradas hoje
+                                            Realizadas hoje
                                         @endif
                                         
                                     </span>
