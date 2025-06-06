@@ -29,6 +29,28 @@ class PacketController extends Controller
         ]);
     }
 
+    public function monthConverter()
+    {
+        $mes = date('M');
+
+        $mes_extenso = array(
+            'Jan' => 'Janeiro',
+            'Feb' => 'Fevereiro',
+            'Mar' => 'Marco',
+            'Apr' => 'Abril',
+            'May' => 'Maio',
+            'Jun' => 'Junho',
+            'Jul' => 'Julho',
+            'Aug' => 'Agosto',
+            'Nov' => 'Novembro',
+            'Sep' => 'Setembro',
+            'Oct' => 'Outubro',
+            'Dec' => 'Dezembro'
+        );
+
+        return $mes_extenso["$mes"];
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -70,6 +92,7 @@ class PacketController extends Controller
         $packet->comments = $request->comments;
         $packet->status = 'Aguardando Retirada';
         $packet->received_at = date('d/m/Y - H:i:s');
+        $packet->month =
         $packet->image = $publicPath;
         $packet->save();
 

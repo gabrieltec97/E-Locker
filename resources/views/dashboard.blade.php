@@ -420,4 +420,98 @@
             </div>
         </div> 
     </div>
+
+    <script>
+    new Chart(ctx2, {
+        type: "line",
+        data: {
+            labels: [
+                "Janeiro", "Fevereiro", "Março", "Abril", "Maio", 
+                "Junho", "Julho", "Agosto", "Setembro", "Outubro",
+                "Novembro", "Dezembro"
+            ],
+            datasets: [{
+                label: "Entregas recebidas",
+                tension: 0.4,
+                borderWidth: 0,
+                pointRadius: 0,
+                borderColor: "#cb0c9f",
+                borderWidth: 3,
+                backgroundColor: gradientStroke1,
+                fill: true,
+                data: [50, 40, 300, 220, 500, 250, 400, 230, 500, 250, 300, 419, 314],
+                maxBarThickness: 6
+
+            },
+                {
+                    label: "Entregas retiradas",
+                    tension: 0.4,
+                    borderWidth: 0,
+                    pointRadius: 0,
+                    borderColor: "#3A416F",
+                    borderWidth: 3,
+                    backgroundColor: gradientStroke2,
+                    fill: true,
+                    data: [30, 90, 40, 140, 290, 290, 340, 230, 400, 246, 300, 409, 312],
+                    maxBarThickness: 6
+                },
+            ],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false,
+                }
+            },
+            interaction: {
+                intersect: false,
+                mode: 'index',
+            },
+            scales: {
+                y: {
+                    grid: {
+                        drawBorder: false,
+                        display: true,
+                        drawOnChartArea: true,
+                        drawTicks: false,
+                        borderDash: [5, 5]
+                    },
+                    ticks: {
+                        display: true,
+                        padding: 10,
+                        color: '#b2b9bf',
+                        font: {
+                            size: 11,
+                            family: "Inter",
+                            style: 'normal',
+                            lineHeight: 2
+                        },
+                    }
+                },
+                x: {
+                    grid: {
+                        drawBorder: false,
+                        display: false,
+                        drawOnChartArea: false,
+                        drawTicks: false,
+                        borderDash: [5, 5]
+                    },
+                    ticks: {
+                        display: true,
+                        color: '#b2b9bf',
+                        padding: 20,
+                        font: {
+                            size: 11,
+                            family: "Inter",
+                            style: 'normal',
+                            lineHeight: 2
+                        },
+                    }
+                },
+            },
+        },
+    });
+</script>    
 @endsection
