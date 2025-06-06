@@ -41,7 +41,6 @@
                                             <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
                                         </ul>
                                     </div>
-                                    <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0">+55%</p>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +82,6 @@
                                             <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
                                         </ul>
                                     </div>
-                                    <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0">+124%</p>
                                 </div>
                             </div>
                         </div>
@@ -389,32 +387,63 @@
                     <h5>Resumo mensal</h5>
                     <p class="text-sm">
                         <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
-                        <span class="font-weight-bold">24%</span> this month
+                        <span class="font-weight-bold">Métricas resumidas</span> do mês atual
                     </p>
                 </div>
                 <div class="card-body p-3">
                     <div class="timeline timeline-one-side">
                         <div class="timeline-block mb-3">
                             <div class="timeline-content">
-                                <h6 class="text-dark text-sm font-weight-bold mb-0">118 Entregas recebidas</h6>
-                                <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">21 Recebidas com observações</p>
+                                <h6 class="text-dark text-sm font-weight-bold mb-0">{{ $total }} Entregas recebidas</h6>
+                                <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">
+                                    @if ($resume == 0 || $resume == 1)
+                                        {{ $resume }} Recebida com observação
+                                    @else
+                                        {{ $resume }} Recebidas com observações
+                                    @endif
+                                </p>
                             </div>
                         </div>
                         <div class="timeline-block mb-3">
                             <div class="timeline-content">
-                                <h6 class="text-dark text-sm font-weight-bold mb-0">96 Entregas retiradas</h6>
-                                <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">28 Retiradas por terceiros</p>
+                                <h6 class="text-dark text-sm font-weight-bold mb-0">
+                                    @if ($totalWithdrawn == 0 || $totalWithdrawn == 1)
+                                        {{ $totalWithdrawn }} Entrega retirada
+                                    @else
+                                        {{ $totalWithdrawn }} Entregas retiradas
+                                    @endif
+                                </h6>
+                                <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">
+                                    @if ($totalOthers == 0 || $totalOthers == 1)
+                                        {{ $totalOthers }} Retirada por terceiros
+                                    @else
+                                        {{ $totalOthers }} Retiradas por terceiros
+                                    @endif
+                                </p>
                             </div>
                         </div>
                         <div class="timeline-block mb-3">
                             <div class="timeline-content">
-                                <h6 class="text-dark text-sm font-weight-bold mb-0">22 Entregas aguardando retirada</h6>
+                                <h6 class="text-dark text-sm font-weight-bold mb-0">
+                                    @if ($waiting == 0 || $waiting == 1)
+                                        {{ $waiting }} Entrega aguardando retirada
+                                    @else
+                                        {{ $waiting }} Entregas aguardando retirada
+                                    @endif
+                                    
+                                </h6>
                                 <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">Pelo proprietário ou terceiros</p>
                             </div>
                         </div>
                         <div class="timeline-block mb-3">
                             <div class="timeline-content">
-                                <h6 class="text-dark text-sm font-weight-bold mb-0">2 entregas canceladas</h6>
+                                <h6 class="text-dark text-sm font-weight-bold mb-0">
+                                    @if ($cancelled == 0 || $cancelled == 1)
+                                        {{ $cancelled }} entrega cancelada
+                                    @else
+                                        {{ $cancelled }} entregas canceladas
+                                    @endif
+                                </h6>
                                 <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">Via administrativo</p>
                             </div>
                         </div>
