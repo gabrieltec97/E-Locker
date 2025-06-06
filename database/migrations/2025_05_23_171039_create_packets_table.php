@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('withdrawn_at')->nullable();
             $table->string('withdrawn_by')->nullable();
-            $table->string('signature');
+            $table->string('signature')->nullable();
             $table->timestamps();
         });
     }
