@@ -13,7 +13,7 @@
                             <div class="row">
                                 <div class="col-8 text-start">
                                     <div class="icon icon-shape bg-white shadow text-center border-radius-2xl">
-                                        <i class="ni ni-circle-08 text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
+                                        <i class="fa-solid fa-box-open text-dark dash-icon"></i>
                                     </div>
                                     <h5 class="text-white font-weight-bolder mb-0 mt-3">
                                         12 entregas
@@ -44,7 +44,7 @@
                             <div class="row">
                                 <div class="col-8 text-start">
                                     <div class="icon icon-shape bg-white shadow text-center border-radius-2xl">
-                                        <i class="ni ni-active-40 text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
+                                        <i class="fa-regular fa-thumbs-up text-dark dash-icon"></i>
                                     </div>
                                     <h5 class="text-white font-weight-bolder mb-0 mt-3">
                                         8 entregas
@@ -74,10 +74,10 @@
         <div class="col-lg-12">
             <div class="card z-index-2">
                 <div class="card-header pb-0">
-                    <h6>Resumo de entregas</h6>
+                    <h5>Resumo de entregas</h5>
                     <p class="text-sm">
                         <i class="fa fa-arrow-up text-success"></i>
-                        <span class="font-weight-bold">métricas ao longo</span> de 2025
+                        <span class="font-weight-bold">Métricas ao longo</span> de 2025
                 </div>
                 <div class="card-body p-3">
                     <div class="chart">
@@ -93,10 +93,10 @@
                 <div class="card-header pb-0">
                     <div class="row">
                         <div class="col-lg-6 col-7">
-                            <h6>Unidades com mais entregas</h6>
+                            <h5>Unidades com mais entregas</h5>
                             <p class="text-sm mb-0">
                                 <i class="fa fa-check text-info" aria-hidden="true"></i>
-                                <span class="font-weight-bold ms-1">Recebimento x retirada</span> neste mês
+                                <span class="font-weight-bold ms-1">Recebimento x Retirada</span> no mês atual
                             </p>
                         </div>
                         <div class="col-lg-6 col-5 my-auto text-end">
@@ -365,7 +365,7 @@
         <div class="col-lg-4 col-md-6">
             <div class="card h-100">
                 <div class="card-header pb-0">
-                    <h6>Resumo mensal</h6>
+                    <h5>Resumo mensal</h5>
                     <p class="text-sm">
                         <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
                         <span class="font-weight-bold">24%</span> this month

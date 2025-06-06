@@ -35,7 +35,13 @@
     margin-left: -25px;
 }
 
-.signature-format{
+.dash-icon
+{
+    font-size: 24px;
+    margin-top: 4px;
+}
+.signature-format
+{
 
     margin-left: -35px;
 }

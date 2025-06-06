@@ -15,6 +15,7 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.1.0" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
     <script src="{{ asset('assets/js/signature/signature.js') }}"></script>
     @livewireStyles
