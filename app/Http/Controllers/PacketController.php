@@ -92,7 +92,8 @@ class PacketController extends Controller
         $packet->comments = $request->comments;
         $packet->status = 'Aguardando Retirada';
         $packet->received_at = date('d/m/Y - H:i:s');
-        $packet->month =
+        $packet->day = date('d');
+        $packet->month = $this->monthConverter();
         $packet->image = $publicPath;
         $packet->save();
 
