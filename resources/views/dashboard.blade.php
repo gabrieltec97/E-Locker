@@ -96,7 +96,7 @@
                     <h5>Resumo de entregas</h5>
                     <p class="text-sm">
                         <i class="fa fa-arrow-up text-success"></i>
-                        <span class="font-weight-bold">Métricas ao longo</span> de 2025
+                        <span class="font-weight-bold">Métricas ao longo</span> {{ date("Y") }}
                 </div>
                 <div class="card-body p-3">
                     <div class="chart">
