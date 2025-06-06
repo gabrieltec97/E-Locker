@@ -72,11 +72,30 @@ class HomeController extends Controller
                 ->count();
 
             array_push($dataTotal, $packets);
-}
+        }
+
+        $day = date('d');
+
+        $totalReceivedToday = DB::table('packets')
+                ->where('status', '!=', 'Cancelado')
+                ->where('month', $this->monthConverter())
+                ->where('day', $day)
+                ->count();
+        
+        $totalTakenToday = DB::table('packets')
+                ->where(function($query) {
+                    $query->where('status', 'Retirado pelo destinatário')
+                        ->orWhere('status', 'Retirado por terceiros');
+                })
+                ->where('month', $this->monthConverter())
+                ->where('day', $day)
+                ->count(); 
 
         return view('dashboard', [
             'dataTotal' => $dataTotal,
             'dataTaken' => $dataTaken,
+            'totalReceivedToday' => $totalReceivedToday,
+            'totalTakenToday' => $totalTakenToday
         ]);
     }
 

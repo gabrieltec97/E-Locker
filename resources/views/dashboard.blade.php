@@ -16,9 +16,19 @@
                                         <i class="fa-solid fa-box-open text-dark dash-icon"></i>
                                     </div>
                                     <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                                        12 entregas
+                                        @if ($totalReceivedToday == 0 || $totalReceivedToday == 1)
+                                            {{ $totalReceivedToday }} entrega
+                                        @else
+                                            {{ $totalReceivedToday }} entregas
+                                        @endif
                                     </h5>
-                                    <span class="text-white text-sm">Recebidas hoje</span>
+                                    <span class="text-white text-sm">
+                                         @if ($totalReceivedToday == 0 || $totalReceivedToday == 1)
+                                            Recebida hoje
+                                        @else
+                                            Recebidas hoje
+                                        @endif
+                                    </span>
                                 </div>
                                 <div class="col-4">
                                     <div class="dropdown text-end mb-6">
@@ -47,9 +57,20 @@
                                         <i class="fa-regular fa-thumbs-up text-dark dash-icon"></i>
                                     </div>
                                     <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                                        8 entregas
+                                        @if ($totalTakenToday == 0 || $totalTakenToday == 1)
+                                            {{ $totalTakenToday }} entrega
+                                        @else
+                                            {{ $totalTakenToday }} entregas
+                                        @endif
                                     </h5>
-                                    <span class="text-white text-sm">Retiradas hoje</span>
+                                    <span class="text-white text-sm">
+                                         @if ($totalTakenToday == 0 || $totalTakenToday == 1)
+                                            Retirada hoje
+                                        @else
+                                            Retiradas hoje
+                                        @endif
+                                        
+                                    </span>
                                 </div>
                                 <div class="col-4">
                                     <div class="dropstart text-end mb-6">
@@ -425,7 +446,7 @@
 <script>
     var dataTotal = <?php echo json_encode($dataTotal); ?>;
     var dataTaken = <?php echo json_encode($dataTaken); ?>;
-    
+
     var ctx2 = document.getElementById("chart-line").getContext("2d");
 
     var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
