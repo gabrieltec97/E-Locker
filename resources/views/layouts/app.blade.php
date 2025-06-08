@@ -161,13 +161,10 @@
                     </li>
                     <li class="nav-item d-flex align-items-center">
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}" x-data>
+                        <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <x-dropdown-link href="{{ route('logout') }}"
-                                             @click.prevent="$root.submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
+                            <button type="submit">sair</button>
                         </form>
                     </li>
                     <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
