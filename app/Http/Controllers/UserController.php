@@ -37,7 +37,15 @@ class UserController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->profile = $request->profile;
+
+        if ($request->profile == 'Administrador'){
+            $user->profile = $request->profile;
+            $user->assignRole('Administrador');
+        }else{
+            $user->profile = $request->profile;
+            $user->assignRole('Operador');
+        }
+
         $user->password = bcrypt($request->password);
         $user->save();
 
@@ -69,7 +77,15 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->profile = $request->profile;
+
+        if ($request->profile == 'Administrador'){
+            $user->profile = $request->profile;
+            $user->assignRole('Administrador');
+        }else{
+            $user->profile = $request->profile;
+            $user->assignRole('Operador');
+        }
+
         if ($request->password != null){
             $user->password = bcrypt($request->password);
         }
