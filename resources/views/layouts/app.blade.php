@@ -151,21 +151,24 @@
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                 <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                     <div class="input-group">
-                        <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" placeholder="Type here...">
+                        @php
+                            $user = \Illuminate\Support\Facades\Auth::user();
+                            $hour = date('H');
+                        @endphp
+
+                        @if($hour >= 5 && $hour < 12)
+                            <h6 class="mt-2">Bom dia, {{ $user->name }}</h6>
+                        @elseif($hour >= 12 && $hour < 18)
+                            <h6 class="mt-2">Boa tarde, {{ $user->name }}</h6>
+                        @else
+                            <h6 class="mt-2">Boa noite, {{ $user->name }}</h6>
+                        @endif
                     </div>
                 </div>
                 <ul class="navbar-nav  justify-content-end">
                     <li class="nav-item d-flex align-items-center">
-                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
-                    </li>
-                    <li class="nav-item d-flex align-items-center">
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <button type="submit">sair</button>
-                        </form>
+                        Sair
                     </li>
                     <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                         <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
@@ -236,6 +239,7 @@
 <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
 <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
 
+<form method="POST" action="{{ route('logout') }}" id="logout">@csrf</form>
 <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
