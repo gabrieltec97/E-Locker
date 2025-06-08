@@ -7,10 +7,6 @@ use App\Http\Controllers\PacketController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/teste', function () {
-
-});
-
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
 Route::resource('unidades', UnitController::class);
