@@ -168,7 +168,7 @@
                 <ul class="navbar-nav  justify-content-end">
                     <li class="nav-item d-flex align-items-center">
                         <!-- Authentication -->
-                        Sair
+                        <h6 class="mt-2" id="logout">Sair</h6>
                     </li>
                     <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                         <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
@@ -239,7 +239,13 @@
 <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
 <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
 
-<form method="POST" action="{{ route('logout') }}" id="logout">@csrf</form>
+<form method="POST" action="{{ route('logout') }}" id="logoutForm" class="hidden">@csrf</form>
+
+<script>
+    document.getElementById('logout').addEventListener('click', function () {
+        document.getElementById('logoutForm').submit();
+    });
+</script>
 <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
