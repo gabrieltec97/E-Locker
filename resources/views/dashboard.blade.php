@@ -68,7 +68,7 @@
                                         @else
                                             Realizadas hoje
                                         @endif
-                                        
+
                                     </span>
                                 </div>
                                 <div class="col-4">
@@ -146,52 +146,52 @@
                             <tbody>
                             @foreach ($count as $unit)
                                 <tr>
-                                <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">{{ $unit['unit'] }}</h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                   <div class="d-flex py-1">
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">
-                                                @if ( $unit['total'] == 0 ||  $unit['total'] == 1)
-                                                    {{ $unit['total'] }} entrega
-                                                @else    
-                                                    {{ $unit['total'] }} entregas
-                                                @endif
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="align-middle text-center text-sm">
-                                    <div class="d-flex py-1">
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">
-                                                @if ( $unit['pickedUp'] == 0 ||  $unit['pickedUp'] == 1)
-                                                    {{ $unit['pickedUp'] }} retirada
-                                                @else    
-                                                    {{ $unit['pickedUp'] }} retiradas
-                                                @endif
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="progress-wrapper w-75 mx-auto">
-                                        <div class="progress-info">
-                                            <div class="progress-percentage">
-                                                <span class="text-xs font-weight-bold">{{ $unit['percent'] }}%</span>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">{{ $unit['unit'] }}</h6>
                                             </div>
                                         </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-info w-{{ $unit['percent'] }}" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex py-1">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">
+                                                    @if ( $unit['total'] == 0 ||  $unit['total'] == 1)
+                                                        {{ $unit['total'] }} entrega
+                                                    @else
+                                                        {{ $unit['total'] }} entregas
+                                                    @endif
+                                                </h6>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                    <td class="align-middle text-center text-sm">
+                                        <div class="d-flex py-1">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">
+                                                    @if ( $unit['pickedUp'] == 0 ||  $unit['pickedUp'] == 1)
+                                                        {{ $unit['pickedUp'] }} retirada
+                                                    @else
+                                                        {{ $unit['pickedUp'] }} retiradas
+                                                    @endif
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle">
+                                        <div class="progress-wrapper w-75 mx-auto">
+                                            <div class="progress-info">
+                                                <div class="progress-percentage">
+                                                    <span class="text-xs font-weight-bold">{{ $unit['percent'] }}%</span>
+                                                </div>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-gradient-info w-{{ $unit['percent'] }}" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
                             @endforeach
                             </tbody>
                         </table>
@@ -248,7 +248,7 @@
                                     @else
                                         {{ $waiting }} Entregas aguardando retirada
                                     @endif
-                                    
+
                                 </h6>
                                 <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">Pelo proprietário ou terceiros</p>
                             </div>
@@ -282,122 +282,122 @@
                     <h6 class="ms-2 mt-4 mb-0"> Active Users </h6>
                     <p class="text-sm ms-2"> (<span class="font-weight-bolder">+23%</span>) than last week </p>
                     <div class="container border-radius-lg">
-                    
+
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
     </div>
-<script src="../assets/js/plugins/chartjs.min.js"></script>
+    <script src="../assets/js/plugins/chartjs.min.js"></script>
 
-<script>
-    var dataTotal = <?php echo json_encode($dataTotal); ?>;
-    var dataTaken = <?php echo json_encode($dataTaken); ?>;
+    <script>
+        var dataTotal = <?php echo json_encode($dataTotal); ?>;
+        var dataTaken = <?php echo json_encode($dataTaken); ?>;
 
-    var ctx2 = document.getElementById("chart-line").getContext("2d");
+        var ctx2 = document.getElementById("chart-line").getContext("2d");
 
-    var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+        var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
 
-    gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
-    gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-    gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
+        gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
+        gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+        gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
 
-    var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+        var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
 
-    gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
-    gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-    gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
+        gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
+        gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+        gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
 
-    new Chart(ctx2, {
-        type: "line",
-        data: {
-            labels: [
-                "Janeiro", "Fevereiro", "Março", "Abril", "Maio", 
-                "Junho", "Julho", "Agosto", "Setembro", "Outubro",
-                "Novembro", "Dezembro"
-            ],
-            datasets: [{
-                label: "Entregas recebidas",
-                tension: 0.4,
-                borderWidth: 0,
-                pointRadius: 0,
-                borderColor: "#cb0c9f",
-                borderWidth: 3,
-                backgroundColor: gradientStroke1,
-                fill: true,
-                data: dataTotal, 
-                maxBarThickness: 6
-
-            },
-                {
-                    label: "Entregas retiradas",
+        new Chart(ctx2, {
+            type: "line",
+            data: {
+                labels: [
+                    "Janeiro", "Fevereiro", "Março", "Abril", "Maio",
+                    "Junho", "Julho", "Agosto", "Setembro", "Outubro",
+                    "Novembro", "Dezembro"
+                ],
+                datasets: [{
+                    label: "Entregas recebidas",
                     tension: 0.4,
                     borderWidth: 0,
                     pointRadius: 0,
-                    borderColor: "#3A416F",
+                    borderColor: "#cb0c9f",
                     borderWidth: 3,
-                    backgroundColor: gradientStroke2,
+                    backgroundColor: gradientStroke1,
                     fill: true,
-                    data: dataTaken,
+                    data: dataTotal,
                     maxBarThickness: 6
+
                 },
-            ],
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false,
-                }
-            },
-            interaction: {
-                intersect: false,
-                mode: 'index',
-            },
-            scales: {
-                y: {
-                    grid: {
-                        drawBorder: false,
-                        display: true,
-                        drawOnChartArea: true,
-                        drawTicks: false,
-                        borderDash: [5, 5]
+                    {
+                        label: "Entregas retiradas",
+                        tension: 0.4,
+                        borderWidth: 0,
+                        pointRadius: 0,
+                        borderColor: "#3A416F",
+                        borderWidth: 3,
+                        backgroundColor: gradientStroke2,
+                        fill: true,
+                        data: dataTaken,
+                        maxBarThickness: 6
                     },
-                    ticks: {
-                        display: true,
-                        padding: 10,
-                        color: '#b2b9bf',
-                        font: {
-                            size: 11,
-                            family: "Inter",
-                            style: 'normal',
-                            lineHeight: 2
-                        },
-                    }
-                },
-                x: {
-                    grid: {
-                        drawBorder: false,
+                ],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
                         display: false,
-                        drawOnChartArea: false,
-                        drawTicks: false,
-                        borderDash: [5, 5]
-                    },
-                    ticks: {
-                        display: true,
-                        color: '#b2b9bf',
-                        padding: 20,
-                        font: {
-                            size: 11,
-                            family: "Inter",
-                            style: 'normal',
-                            lineHeight: 2
-                        },
                     }
                 },
+                interaction: {
+                    intersect: false,
+                    mode: 'index',
+                },
+                scales: {
+                    y: {
+                        grid: {
+                            drawBorder: false,
+                            display: true,
+                            drawOnChartArea: true,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            padding: 10,
+                            color: '#b2b9bf',
+                            font: {
+                                size: 11,
+                                family: "Inter",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                    x: {
+                        grid: {
+                            drawBorder: false,
+                            display: false,
+                            drawOnChartArea: false,
+                            drawTicks: false,
+                            borderDash: [5, 5]
+                        },
+                        ticks: {
+                            display: true,
+                            color: '#b2b9bf',
+                            padding: 20,
+                            font: {
+                                size: 11,
+                                family: "Inter",
+                                style: 'normal',
+                                lineHeight: 2
+                            },
+                        }
+                    },
+                },
             },
-        },
-    });
+        });
     </script>
 @endsection
