@@ -48,7 +48,7 @@
                                 <form class="form-group" action="{{ route('blocos.store') }}" method="post">
                                     @csrf
                                     <span class="font-weight-bold modal-label">Número do bloco:</span>
-                                    <input type="number" name="block" class="form-control input-format mt-3">
+                                    <input type="number" name="block" class="form-control input-format mt-3" required>
                             </div>
                         </div>
                     </div>
