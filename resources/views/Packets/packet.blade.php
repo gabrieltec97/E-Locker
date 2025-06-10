@@ -1,6 +1,4 @@
 @extends('layouts.app')
-<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-<script src="{{ asset('assets/js/signature/my-signature.js') }}"></script>
 
 @section('title')
     Entrega {{ $packet->id }} - Faça a gestão desta entrega.
@@ -78,7 +76,7 @@
                                     <div class="row mt-4">
                                         <div class="col-12 col-lg-4">
                                             <span class="font-weight-bold modal-label ">Status:</span>
-                                            <select name="status" class="form-control input-format mt-2" {{ ($packet->status == 'Retirado por terceiros' || $packet->status == 'Retirado pelo destinatário') ? 'disabled' : '' }}>
+                                            <select name="status" id="status" class="form-control input-format mt-2" {{ ($packet->status == 'Retirado por terceiros' || $packet->status == 'Retirado pelo destinatário') ? 'disabled' : '' }}>
                                                 <option value="Cancelado" {{ $packet->status == 'Cancelado' ? 'selected' : '' }}>Cancelado</option>
                                                 <option value="Aguardando Retirada" {{ $packet->status == 'Aguardando Retirada' ? 'selected' : '' }}>Aguardando Retirada</option>
                                                 <option value="Retirado por terceiros" {{ $packet->status == 'Retirado por terceiros' ? 'selected' : '' }}>Retirado por terceiros</option>
@@ -89,7 +87,7 @@
 
                                         <div class="col-12 col-lg-4">
                                             <span class="font-weight-bold modal-label">Retirado por:</span>
-                                            <input type="text" name="withdrawn" value="{{ $packet->withdrawn_by }}" {{ $packet->withdrawn_by != null ? 'disabled' : '' }} class="form-control input-format mt-2">
+                                            <input type="text" id="recipient" name="withdrawn" value="{{ $packet->withdrawn_by }}" {{ $packet->withdrawn_by != null ? 'disabled' : '' }} class="form-control input-format mt-2">
                                         </div>
 
                                         @if($packet->withdrawn_at != null)
@@ -169,4 +167,6 @@
         </script>
     @endif
 
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    <script src="{{ asset('assets/js/signature/my-signature.js') }}"></script>
 @endsection

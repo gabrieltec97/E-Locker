@@ -27,19 +27,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    function showToast(message){
+        const notyf = new Notyf({
+            position: {
+                x: 'right',
+                y: 'top',
+            }
+        });
+
+        notyf
+            .error({
+                message: message,
+                dismissible: true,
+                duration: 7000
+            })
+    }
+
     // Submissão via botão customizado
     document.getElementById('register').addEventListener('click', function () {
         const button = this;
         const text = button.querySelector('.button-text');
         const spinner = button.querySelector('.spinner-border');
 
-        text.classList.add('d-none');
-        spinner.classList.remove('d-none');
+        const status = document.getElementById('status');
+        const recipient = document.getElementById('recipient').value;
+        // const refSignature = document.getElementById('signature').value;
 
-        // Dispara o evento 'submit' para que o input oculto seja preenchido
-        form.dispatchEvent(new Event('submit', { cancelable: true }));
+        if (status.value == 'Aguardando Retirada' &&  recipient != ''){
+            const message = 'Preencha corretamente campo de status';
+            showToast(message);
+        }else if(status.value != 'Aguardando Retirada' && status.value != 'Cancelado'){
+            if (recipient == ''){
+                const message = 'Preencha o nome do responsável pela retirada.';
+                showToast(message);
+            }
+        }
 
-        // Aguarde pequeno delay para garantir preenchimento do input
-        setTimeout(() => form.submit(), 100);
     });
 });
