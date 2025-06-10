@@ -60,6 +60,11 @@
     margin-right: 10px;
 }
 
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
 .swal2-icon.swal2-question {
     border-color: #F97316; /* borda do círculo */
     color: #F97316;        /* ponto de interrogação */

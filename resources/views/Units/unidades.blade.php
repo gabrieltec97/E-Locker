@@ -1,5 +1,4 @@
 @extends('layouts.app')
-<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 
 @section('title', 'Blocos e Unidades - Gerenciamento completo de unidades.')
 
@@ -77,33 +76,35 @@
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                        <form action="{{ route('unidades.store') }}" method="post">
+                        <form id="new-unit-form" action="{{ route('unidades.store') }}" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-12 col-lg-6 col-md-6">
                                     <span class="font-weight-bold modal-label">Número da unidade:</span>
-                                    <input type="number" name="unit" class="form-control input-format mt-3">
+                                    <input type="number" name="unit" class="form-control input-format mt-3 mb-2" id="unit-number">
+                                    <span class="text-danger input-format font-weight-bold d-none" id="unit-number-info"><i class="fa-solid fa-circle-info"></i> Selecione a unidade</span>
                                 </div>
 
                                 <div class="col-12 col-lg-6 col-md-6">
                                     <span class="font-weight-bold modal-label">Número do bloco:</span>
-                                    <select name="block" class="form-control input-format mt-3">
-                                        <option selected disabled>Selecione</option>
+                                    <select name="block" class="form-control input-format mt-3 mb-2" id="unit">
+                                        <option value="selecione" selected disabled>Selecione</option>
                                         @foreach($blocks as $block)
                                             <option value="{{$block->number}}">Bloco {{$block->number}}</option>
                                         @endforeach
                                     </select>
+                                    <span class="text-danger input-format font-weight-bold d-none" id="block-info"><i class="fa-solid fa-circle-info"></i> Selecione o bloco</span>
                                 </div>
                             </div>
+                        </form>
                     </div>
                 </div>
                 <div class="modal-footer format-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary" id="registerUnit">
+                    <button type="button" class="btn btn-primary" id="registerUnit">
                         <span class="button-text"><i class="fa-solid fa-circle-check icon-format"></i> Cadastrar</span>
                         <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                     </button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -145,16 +146,6 @@
         </script>
     @endif
 
-    <script>
-        ['registerUnit', 'registerBlock'].forEach(function (id) {
-            document.getElementById(id).addEventListener('click', function () {
-                const button = this;
-                const text = button.querySelector('.button-text');
-                const spinner = button.querySelector('.spinner-border');
-
-                text.classList.add('d-none');
-                spinner.classList.remove('d-none');
-            });
-        });
-    </script>
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    <script src="{{ asset('assets/js/resources/new-unit.js') }}"></script>
 @endsection
