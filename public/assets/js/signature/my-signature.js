@@ -51,17 +51,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const status = document.getElementById('status');
         const recipient = document.getElementById('recipient').value;
-        // const refSignature = document.getElementById('signature').value;
 
         if (status.value == 'Aguardando Retirada' &&  recipient != ''){
             const message = 'Preencha corretamente campo de status';
             showToast(message);
+            return;
         }else if(status.value != 'Aguardando Retirada' && status.value != 'Cancelado'){
             if (recipient == ''){
                 const message = 'Preencha o nome do responsável pela retirada.';
                 showToast(message);
+                return;
             }
         }
+
+        if(status.value == 'Retirado por terceiros' || status.value == 'Retirado pelo destinatário'){
+
+        }
+
+
+
+        // text.classList.add('d-none');
+        // spinner.classList.remove('d-none');
+        //
+        // // Dispara o evento 'submit' para que o input oculto seja preenchido
+        // form.dispatchEvent(new Event('submit', { cancelable: true }));
+        //
+        // // Aguarde pequeno delay para garantir preenchimento do input
+        // setTimeout(() => form.submit(), 100);
+
 
     });
 });
