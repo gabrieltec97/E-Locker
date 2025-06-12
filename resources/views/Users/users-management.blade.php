@@ -105,12 +105,17 @@
                             <div class="row">
                                 <div class="col-12 col-lg-6">
                                     <span class="font-weight-bold modal-label">Nome:</span>
-                                    <input type="text" name="name" class="form-control input-format mt-3">
+                                    <input type="text" name="name" class="form-control input-format mt-2">
                                 </div>
 
                                 <div class="col-12 col-lg-6">
+                                    <span class="font-weight-bold modal-label">Sobrenome:</span>
+                                    <input type="text" name="secondName" class="form-control input-format mt-2">
+                                </div>
+
+                                <div class="col-12 col-lg-6 mt-3">
                                     <span class="font-weight-bold modal-label">E-mail:</span>
-                                    <input type="email" name="email" class="form-control input-format mt-3 mb-1">
+                                    <input type="email" name="email" class="form-control input-format mt-2 mb-1">
                                     <span class="text-danger font-weight-bold check-format" style="display:none;">
                                         <i class="fa-solid fa-circle-xmark"></i>&nbsp;
                                         Este e-mail já está sendo utilizado.
@@ -118,18 +123,20 @@
                                 </div>
 
                                 <div class="col-12 col-lg-6 mt-3">
+                                    <span class="font-weight-bold modal-label">Senha:</span>
+                                    <input type="password" name="password" class="form-control input-format mt-2">
+                                </div>
+
+                                <div class="col-12 col-lg-12 mt-3">
                                     <span class="font-weight-bold modal-label">Perfil:</span>
-                                    <select name="profile" class="form-control input-format mt-3">
+                                    <select name="profile" class="form-control input-format mt-2">
                                         <option disabled selected>Selecione</option>
                                         <option value="Administrador">Administrador</option>
                                         <option value="Operador">Operador</option>
                                     </select>
                                 </div>
 
-                                <div class="col-12 col-lg-6 mt-3">
-                                    <span class="font-weight-bold modal-label">Senha:</span>
-                                    <input type="password" name="password" class="form-control input-format mt-3">
-                                </div>
+
                             </div>
                     </div>
                 </div>
