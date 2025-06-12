@@ -36,6 +36,7 @@ class UserController extends Controller
 
         $user = new User();
         $user->name = $request->name;
+        $user->surname = $request->secondName;
         $user->email = $request->email;
 
         if ($request->profile == 'Administrador'){
@@ -76,6 +77,7 @@ class UserController extends Controller
 
         $user = User::find($id);
         $user->name = $request->name;
+        $user->surname = $request->secondName;
         $user->email = $request->email;
 
         if ($request->profile == 'Administrador'){

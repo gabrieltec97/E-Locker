@@ -40,11 +40,21 @@
                                     </div>
 
                                     <div class="col-12 col-lg-6">
+                                        <span class="font-weight-bold modal-label">Sobrenome:</span>
+                                        <input type="text" name="name" value="{{ $user->surname }}" class="form-control input-format mt-3">
+                                    </div>
+
+                                    <div class="col-12 col-lg-6 mt-3">
                                         <span class="font-weight-bold modal-label">E-mail:</span>
                                         <input type="email" name="email" value="{{ $user->email }}" class="form-control input-format mt-3">
                                     </div>
 
-                                    <div class="col-12 col-lg-6 mt-3">
+                                    <div class="col-12 col-lg-6 mt-3 mb-4">
+                                        <span class="font-weight-bold modal-label">Senha:</span>
+                                        <input type="password" name="password" placeholder="Preencha somente se quiser alterar a senha." class="form-control input-format mt-3">
+                                    </div>
+
+                                    <div class="col-12 col-lg-6">
                                         <span class="font-weight-bold modal-label">Perfil:</span>
                                         <select name="profile" class="form-control input-format mt-3">
                                             <option value="Administrador" {{ $user->profile == 'Administrador' ? 'selected' : '' }}>Administrador</option>
@@ -52,10 +62,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="col-12 col-lg-6 mt-3 mb-4">
-                                        <span class="font-weight-bold modal-label">Senha:</span>
-                                        <input type="password" name="password" placeholder="Preencha somente se quiser alterar a senha." class="form-control input-format mt-3">
-                                    </div>
+
                                 </div>
                             </form>
                         </div>
