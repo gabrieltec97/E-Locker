@@ -1,5 +1,4 @@
 @extends('layouts.app')
-<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 
 @section('title', 'Usuários - Gerenciamento completo.')
 
@@ -100,22 +99,22 @@
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                        <form action="{{ route('usuarios.store') }}" method="post">
+                        <form action="{{ route('usuarios.store') }}" method="post" id="user-form">
                             @csrf
                             <div class="row">
                                 <div class="col-12 col-lg-6">
                                     <span class="font-weight-bold modal-label">Nome:</span>
-                                    <input type="text" name="name" class="form-control input-format mt-2">
+                                    <input type="text" id="name" name="name" class="form-control input-format mt-2">
                                 </div>
 
                                 <div class="col-12 col-lg-6">
                                     <span class="font-weight-bold modal-label">Sobrenome:</span>
-                                    <input type="text" name="secondName" class="form-control input-format mt-2">
+                                    <input type="text" id="secondName" name="secondName" class="form-control input-format mt-2">
                                 </div>
 
                                 <div class="col-12 col-lg-6 mt-3">
                                     <span class="font-weight-bold modal-label">E-mail:</span>
-                                    <input type="email" name="email" class="form-control input-format mt-2 mb-1">
+                                    <input type="email" id="email" name="email" class="form-control input-format mt-2 mb-1">
                                     <span class="text-danger font-weight-bold check-format" style="display:none;">
                                         <i class="fa-solid fa-circle-xmark"></i>&nbsp;
                                         Este e-mail já está sendo utilizado.
@@ -124,29 +123,28 @@
 
                                 <div class="col-12 col-lg-6 mt-3">
                                     <span class="font-weight-bold modal-label">Senha:</span>
-                                    <input type="password" name="password" class="form-control input-format mt-2">
+                                    <input type="password" id="password" name="password" class="form-control input-format mt-2">
                                 </div>
 
                                 <div class="col-12 col-lg-12 mt-3">
                                     <span class="font-weight-bold modal-label">Perfil:</span>
-                                    <select name="profile" class="form-control input-format mt-2">
-                                        <option disabled selected>Selecione</option>
+                                    <select name="profile" id="profile" class="form-control input-format mt-2">
+                                        <option value="selecione" disabled selected>Selecione</option>
                                         <option value="Administrador">Administrador</option>
                                         <option value="Operador">Operador</option>
                                     </select>
                                 </div>
-
-
                             </div>
+                        </form>
                     </div>
                 </div>
                 <div class="modal-footer format-footer">
                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary" id="register">
+                    <button type="button" class="btn btn-primary" id="register">
                         <span class="button-text"><i class="fa-solid fa-circle-check icon-format"></i> Cadastrar</span>
                         <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                     </button>
-                    </form>
+
                 </div>
             </div>
         </div>
@@ -188,49 +186,6 @@
         </script>
     @endif
 
-    <script>
-        document.getElementById('register').addEventListener('click', function () {
-            const button = this;
-            const text = button.querySelector('.button-text');
-            const spinner = button.querySelector('.spinner-border');
-
-            text.classList.add('d-none');
-            spinner.classList.remove('d-none');
-        });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const emailInput = document.querySelector('input[name="email"]');
-            const getButton = document.getElementById('register');
-            const avisoEmail = emailInput.nextElementSibling; // Pega o elemento irmão, no caso o span.
-            avisoEmail.style.display = 'none'; // começa escondido
-
-            emailInput.addEventListener('input', function () { //Pegando o valor para cada vez que a tecla for pressionada.
-                const email = emailInput.value.trim();
-                if (email.length === 0) {
-                    avisoEmail.style.display = 'none';
-                    return;
-                }
-
-                fetch(`/verificar-email?email=${encodeURIComponent(email)}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.exists) {
-                            avisoEmail.style.display = 'block';
-                            getButton.disabled = true;
-                        } else {
-                            avisoEmail.style.display = 'none';
-                            getButton.disabled = false;
-                        }
-                    })
-                    .catch(err => {
-                        console.error('Erro ao verificar email:', err);
-                        avisoEmail.style.display = 'none';
-                        getButton.disabled = false;
-                    });
-            });
-        });
-    </script>
-
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    <script src="{{ asset('assets/js/resources/new-user.js') }}"></script>
 @endsection
