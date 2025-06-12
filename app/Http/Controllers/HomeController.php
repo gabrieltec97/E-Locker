@@ -52,6 +52,7 @@ class HomeController extends Controller
             'Dezembro'
         );
 
+        //Desenvolvimento do item 2
         $dataTotal = [];
         $dataTaken = [];
 
@@ -77,6 +78,7 @@ class HomeController extends Controller
 
         $day = date('d');
 
+        //Desenvolvimento do item 1
         $totalReceivedToday = DB::table('packets')
                 ->where('status', '!=', 'Cancelado')
                 ->where('month', $this->monthConverter())
@@ -92,6 +94,7 @@ class HomeController extends Controller
                 ->where('day', $day)
                 ->count();
 
+        //Desenvolvimento do item 4
         $total = DB::table('packets')
                 ->where('status', '!=', 'Cancelado')
                 ->where('month', $this->monthConverter())
@@ -108,7 +111,6 @@ class HomeController extends Controller
         $totalOthers = DB::table('packets')
                 ->where('status', 'Retirado por terceiros')
                 ->where('month', $this->monthConverter())
-                ->where('day', $day)
                 ->count();
 
         $resume = DB::table('packets')
@@ -120,7 +122,6 @@ class HomeController extends Controller
         $waiting = DB::table('packets')
                 ->where('status', 'Aguardando Retirada')
                 ->where('month', $this->monthConverter())
-                ->where('comments', '!=', null)
                 ->count();
 
         $cancelled = DB::table('packets')
@@ -129,8 +130,7 @@ class HomeController extends Controller
                 ->where('comments', '!=', null)
                 ->count();
 
-
-    //Funcionalidade do item 3.
+    //Desenvolvimento do item 3.
     $allUnits = [];
     $units = Unit::all();
 
@@ -158,7 +158,7 @@ class HomeController extends Controller
 
         if($countTotal != 0){
             $percent = ($pickedUp * 100) / $countTotal;
-//            $percent = round($percent / 10) * 10;
+            $percent = round($percent / 10) * 10;
         }else{
             $percent = 0;
         }
