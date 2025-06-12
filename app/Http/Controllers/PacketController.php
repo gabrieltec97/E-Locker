@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Packet;
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 
@@ -24,8 +25,12 @@ class PacketController extends Controller
     public function create()
     {
         $units = Unit::all();
+        $user = Auth::user();
+        $user = $user->name. ' ' . $user->surname;
+
         return view('Packets.new-packet', [
-            'units' => $units
+            'units' => $units,
+            'user' => $user
         ]);
     }
 

@@ -33,7 +33,7 @@
                                 <div class="row pb-2">
                                     <div class="col-4">
                                         <span class="font-weight-bold modal-label">Recebedor:</span>
-                                        <input type="text" name="receiver" value="{{ old('receiver') }}" class="form-control input-format mt-2" id="receiver">
+                                        <input type="text" name="receiver" value="{{ $user }}" class="form-control input-format mt-2" id="receiver">
                                     </div>
 
                                     <div class="col-4">
