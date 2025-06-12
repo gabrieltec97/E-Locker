@@ -158,7 +158,7 @@ class HomeController extends Controller
 
         if($countTotal != 0){
             $percent = ($pickedUp * 100) / $countTotal;
-            $percent = round($percent / 10) * 10;
+//            $percent = round($percent / 10) * 10;
         }else{
             $percent = 0;
         }
