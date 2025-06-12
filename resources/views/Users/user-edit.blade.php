@@ -1,5 +1,4 @@
 @extends('layouts.app')
-<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 
 @section('title', 'Blocos e Unidades - Gerenciamento completo de unidades.')
 
@@ -36,22 +35,22 @@
                                 <div class="row">
                                     <div class="col-12 col-lg-6">
                                         <span class="font-weight-bold modal-label">Nome:</span>
-                                        <input type="text" name="name" value="{{ $user->name }}" class="form-control input-format mt-3">
+                                        <input type="text" id="name" name="name" value="{{ $user->name }}" class="form-control input-format mt-3">
                                     </div>
 
                                     <div class="col-12 col-lg-6">
                                         <span class="font-weight-bold modal-label">Sobrenome:</span>
-                                        <input type="text" name="name" value="{{ $user->surname }}" class="form-control input-format mt-3">
+                                        <input type="text" id="secondName" name="name" value="{{ $user->surname }}" class="form-control input-format mt-3">
                                     </div>
 
                                     <div class="col-12 col-lg-6 mt-3">
                                         <span class="font-weight-bold modal-label">E-mail:</span>
-                                        <input type="email" name="email" value="{{ $user->email }}" class="form-control input-format mt-3">
+                                        <input type="email" id="email" name="email" value="{{ $user->email }}" class="form-control input-format mt-3">
                                     </div>
 
                                     <div class="col-12 col-lg-6 mt-3 mb-4">
                                         <span class="font-weight-bold modal-label">Senha:</span>
-                                        <input type="password" name="password" placeholder="Preencha somente se quiser alterar a senha." class="form-control input-format mt-3">
+                                        <input type="password" id="password" name="password" placeholder="Preencha somente se quiser alterar a senha." class="form-control input-format mt-3">
                                     </div>
 
                                     <div class="col-12 col-lg-6">
@@ -61,8 +60,6 @@
                                             <option value="Operador" {{ $user->profile == 'Operador' ? 'selected' : '' }}>Operador</option>
                                         </select>
                                     </div>
-
-
                                 </div>
                             </form>
                         </div>
@@ -71,12 +68,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        document.getElementById('save').addEventListener('click', function() {
-            document.getElementById('user-edit').submit();
-        });
-    </script>
 
     @if(session('msg-error'))
         <script>
@@ -96,14 +87,6 @@
         </script>
     @endif
 
-    <script>
-        document.getElementById('save').addEventListener('click', function () {
-            const button = this;
-            const text = button.querySelector('.button-text');
-            const spinner = button.querySelector('.spinner-border');
-
-            text.classList.add('d-none');
-            spinner.classList.remove('d-none');
-        });
-    </script>
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    <script src="{{ asset('assets/js/resources/user.js') }}"></script>
 @endsection
