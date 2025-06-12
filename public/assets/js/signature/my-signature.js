@@ -70,14 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-        // text.classList.add('d-none');
-        // spinner.classList.remove('d-none');
-        //
-        // // Dispara o evento 'submit' para que o input oculto seja preenchido
-        // form.dispatchEvent(new Event('submit', { cancelable: true }));
-        //
-        // // Aguarde pequeno delay para garantir preenchimento do input
-        // setTimeout(() => form.submit(), 100);
+        text.classList.add('d-none');
+        spinner.classList.remove('d-none');
+
+        // Dispara o evento 'submit' para que o input oculto seja preenchido
+        form.dispatchEvent(new Event('submit', { cancelable: true }));
+
+        // Aguarde pequeno delay para garantir preenchimento do input
+        setTimeout(() => form.submit(), 100);
 
 
     });

@@ -56,9 +56,16 @@ class PacketController extends Controller
      */
     public function store(Request $request)
     {
-        //Verificações de imagem.
         $request->validate([
+            'unit' => 'required',
+            'recipient' => 'required',
+            'receiver' => 'required',
             'photo' => 'required',
+        ], [
+            'unit.required' => 'Registro não concluído. O número da unidade é obrigatório.',
+            'recipient.required' => 'Registro não concluído. O nome do destinatário é obrigatório.',
+            'receiver.required' => 'Registro não concluído. O nome de quem recebeu é obrigatório.',
+            'photo.required' => 'Registro não concluído. É necessário tirar uma foto da entrega',
         ]);
 
         $photo = $request->input('photo');
@@ -132,9 +139,15 @@ class PacketController extends Controller
 
             return redirect()->route('entregas.index')->with('msg-success', 'Registro cancelado com sucesso!');
         }
-        //Validação da assinatura.
+
         $request->validate([
+            'status' => 'required',
+            'withdrawn' => 'required',
             'signature' => 'required',
+        ], [
+            'status.required' => 'Alteração não realizada. Preencha corretamente o campo de status.',
+            'withdrawn.required' => 'Alteração não realizada. O nome de quem recebeu é obrigatório.',
+            'signature.required' => 'Alteração não realizada. É necessário colher a assinatura da entrega',
         ]);
 
         $dataUrl = $request->input('signature');

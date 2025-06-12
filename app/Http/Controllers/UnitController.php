@@ -33,6 +33,14 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'unit' => 'required',
+            'block' => 'required',
+        ], [
+            'unit.required' => 'Unidade não cadastrada. O número da unidade é obrigatório.',
+            'block.required' => 'Bloco não cadastrado. O número do bloco é obrigatório.',
+        ]);
+
         $check = DB::table('units')
             ->where('number', $request->unit)
             ->where('block', $request->block)
@@ -71,6 +79,14 @@ class UnitController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'unit' => 'required',
+            'block' => 'required',
+        ], [
+            'unit.required' => 'Alteração não concluída. O número da unidade é obrigatório.',
+            'block.required' => 'Alteração não concluída. O número do bloco é obrigatório.',
+        ]);
+
         $check = DB::table('units')
             ->where('number', $request->unit)
             ->where('block', $request->block)

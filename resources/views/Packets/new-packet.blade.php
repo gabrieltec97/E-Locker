@@ -33,12 +33,12 @@
                                 <div class="row pb-2">
                                     <div class="col-4">
                                         <span class="font-weight-bold modal-label">Recebedor:</span>
-                                        <input type="text" name="receiver" class="form-control input-format mt-2" id="receiver">
+                                        <input type="text" name="receiver" value="{{ old('receiver') }}" class="form-control input-format mt-2" id="receiver">
                                     </div>
 
                                     <div class="col-4">
                                         <span class="font-weight-bold modal-label">Destinatário:</span>
-                                        <input type="text" name="recipient" class="form-control input-format mt-2" id="recipient">
+                                        <input type="text" name="recipient" value="{{ old('recipient') }}" class="form-control input-format mt-2" id="recipient">
                                     </div>
 
                                     <div class="col-4">
@@ -46,14 +46,14 @@
                                         <select name="unit" class="form-control input-format mt-1" id="unit">
                                             <option value="selecione" selected disabled>Selecione</option>
                                             @foreach ($units as $unit)
-                                                <option value="{{ $unit->number }} - BL 0{{ $unit->block }}">{{ $unit->number }} - BL 0{{ $unit->block }}</option>
+                                                <option value="{{ $unit->number }} - BL 0{{ $unit->block }}" {{ old('categoria') == "$unit->number - BL 0 $unit->block" ? 'selected' : '' }}>{{ $unit->number }} - BL 0{{ $unit->block }}</option>
                                             @endforeach
                                         </select>
                                     </div>
 
                                     <div class="col-12 mt-3">
                                         <span class="font-weight-bold modal-label">Comentários:</span>
-                                        <textarea name="comments" class="form-control mt-2 format-textarea modal-label" rows="5"></textarea>
+                                        <textarea name="comments" value="{{ old('comments') }}" class="form-control mt-2 format-textarea modal-label" rows="5"></textarea>
                                     </div>
 
                                     <div class="col-6 mt-3">
@@ -114,6 +114,24 @@
             notyf
                 .error({
                     message: '{{ session('msg-error') }}',
+                    dismissible: true,
+                    duration: 5000
+                })
+        </script>
+    @endif
+
+    @if ($errors->any())
+        <script>
+            const notyf = new Notyf({
+                position: {
+                    x: 'right',
+                    y: 'top',
+                }
+            });
+
+            notyf
+                .error({
+                    message: '{{ $errors->first() }}',
                     dismissible: true,
                     duration: 5000
                 })

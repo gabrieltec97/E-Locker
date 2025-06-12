@@ -146,6 +146,24 @@
         </script>
     @endif
 
+    @if ($errors->any())
+        <script>
+            const notyf = new Notyf({
+                position: {
+                    x: 'right',
+                    y: 'top',
+                }
+            });
+
+            notyf
+                .error({
+                    message: '{{ $errors->first() }}',
+                    dismissible: true,
+                    duration: 5000
+                })
+        </script>
+    @endif
+
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <script src="{{ asset('assets/js/resources/new-unit.js') }}"></script>
 @endsection
