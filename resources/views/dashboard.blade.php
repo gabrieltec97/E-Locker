@@ -146,56 +146,45 @@
                             <tbody>
                             @foreach ($count as $unit)
                                 <tr>
-                                    <td>
-                                        <div class="d-flex px-2 py-1">
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">{{ $unit['unit'] }}</h6>
-                                            </div>
-                                        </div>
+                                    <!-- Unidade -->
+                                    <td class="align-middle">
+                                        <h6 class="mb-0 text-sm">{{ $unit['unit'] }}</h6>
                                     </td>
-                                    <td>
-                                        <div class="d-flex py-1">
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">
-                                                    @if ( $unit['total'] == 0 ||  $unit['total'] == 1)
-                                                        {{ $unit['total'] }} entrega
-                                                    @else
-                                                        {{ $unit['total'] }} entregas
-                                                    @endif
-                                                </h6>
-                                            </div>
-                                        </div>
+
+                                    <!-- Recebido -->
+                                    <td class="align-middle">
+                                        <h6 class="mb-0 text-sm">
+                                            {{ $unit['total'] }} {{ $unit['total'] == 1 ? 'entrega' : 'entregas' }}
+                                        </h6>
                                     </td>
-                                    <td class="align-middle text-center text-sm">
-                                        <div class="d-flex py-1">
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="mb-0 text-sm">
-                                                    @if ( $unit['pickedUp'] == 0 ||  $unit['pickedUp'] == 1)
-                                                        {{ $unit['pickedUp'] }} retirada
-                                                    @else
-                                                        {{ $unit['pickedUp'] }} retiradas
-                                                    @endif
-                                                </h6>
-                                            </div>
-                                        </div>
+
+                                    <!-- Retirado -->
+                                    <td class="align-middle text-center">
+                                        <h6 class="mb-0 text-sm">
+                                            {{ $unit['pickedUp'] }} {{ $unit['pickedUp'] == 1 ? 'retirada' : 'retiradas' }}
+                                        </h6>
                                     </td>
+
+                                    <!-- Taxa de retirada -->
                                     <td class="align-middle">
                                         <div class="progress-wrapper w-75 mx-auto">
-                                            <div class="progress-info">
+                                            <div class="progress-info mb-1 d-flex justify-content-center">
                                                 <div class="progress-percentage">
                                                     <span class="text-xs font-weight-bold">{{ $unit['percent'] }}%</span>
                                                 </div>
                                             </div>
                                             <div class="progress">
-                                                <div class="progress-bar bg-gradient-info w-{{ $unit['percent'] }}" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar bg-gradient-info w-{{ $unit['percent'] }}" role="progressbar" aria-valuenow="{{ $unit['percent'] }}" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                     </td>
+
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
                     </div>
+
                 </div>
             </div>
         </div>
