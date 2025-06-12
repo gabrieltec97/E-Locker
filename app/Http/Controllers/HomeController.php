@@ -82,7 +82,7 @@ class HomeController extends Controller
                 ->where('month', $this->monthConverter())
                 ->where('day', $day)
                 ->count();
-        
+
         $totalTakenToday = DB::table('packets')
                 ->where(function($query) {
                     $query->where('status', 'Retirado pelo destinatário')
@@ -90,7 +90,7 @@ class HomeController extends Controller
                 })
                 ->where('month', $this->monthConverter())
                 ->where('day', $day)
-                ->count(); 
+                ->count();
 
         $total = DB::table('packets')
                 ->where('status', '!=', 'Cancelado')
@@ -103,34 +103,34 @@ class HomeController extends Controller
                         ->orWhere('status', 'Retirado por terceiros');
                 })
                 ->where('month', $this->monthConverter())
-                ->count();  
+                ->count();
 
         $totalOthers = DB::table('packets')
                 ->where('status', 'Retirado por terceiros')
                 ->where('month', $this->monthConverter())
                 ->where('day', $day)
-                ->count();   
+                ->count();
 
         $resume = DB::table('packets')
                 ->where('status', '!=', 'Cancelado')
                 ->where('month', $this->monthConverter())
                 ->where('comments', '!=', null)
-                ->count(); 
-         
+                ->count();
+
         $waiting = DB::table('packets')
                 ->where('status', 'Aguardando Retirada')
                 ->where('month', $this->monthConverter())
                 ->where('comments', '!=', null)
-                ->count();        
+                ->count();
 
         $cancelled = DB::table('packets')
                 ->where('status', 'Cancelado')
                 ->where('month', $this->monthConverter())
                 ->where('comments', '!=', null)
                 ->count();
-                
-        
-    //Funcionalidade do item 3.            
+
+
+    //Funcionalidade do item 3.
     $allUnits = [];
     $units = Unit::all();
 
@@ -154,15 +154,16 @@ class HomeController extends Controller
                 })
                 ->where('month', $this->monthConverter())
                  ->where('unit', $unicUnit)
-                ->count();     
+                ->count();
 
         if($countTotal != 0){
             $percent = ($pickedUp * 100) / $countTotal;
+            $percent = round($percent / 10) * 10;
         }else{
             $percent = 0;
-        }        
+        }
 
-        array_push($count, ['unit' => $unicUnit, 'total' => $countTotal, 'pickedUp' => $pickedUp, 'percent' => $percent]);  
+        array_push($count, ['unit' => $unicUnit, 'total' => $countTotal, 'pickedUp' => $pickedUp, 'percent' => $percent]);
     }
 
         // Ordenando o array $count pela quantidade total de itens, de forma decrescente.
