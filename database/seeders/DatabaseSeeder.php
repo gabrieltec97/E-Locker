@@ -38,13 +38,14 @@ class DatabaseSeeder extends Seeder
             'Gerenciar entregas',
         ]);
 
-
-
-        // User::factory(10)->create();
-
-//        User::factory()->create([
-//            'name' => 'Test User',
-//            'email' => 'test@example.com',
-//        ]);
+        $user = User::create([
+            'name' => 'Administrador',
+            'surname' => 'Master',
+            'email' => 'admin@e-locker.online',
+            'password' => bcrypt('master$;'),
+            'profile' => 'Administrador'
+        ]);
+    
+        $user->assignRole('Administrador');
     }
 }
