@@ -7,6 +7,10 @@ use App\Http\Controllers\PacketController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function(){
+    return redirect(route('login');
+});
+
 Route::middleware(['auth'])->group(function (){
     Route::middleware(['role:Administrador'])->group(function (){
         Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
