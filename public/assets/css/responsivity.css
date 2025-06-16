@@ -1,8 +1,24 @@
 /* Extra small (máximo 575px) */
 @media (max-width: 575px) {
-    .title-format{
+    .title-format
+    {
         text-align: center;
         margin-bottom: 5px;
+    }
+
+    .first-item
+    {
+        margin-top: -15px !important;
+    }
+
+    .preview-format
+    {
+        width: 115% !important;
+    }
+
+    .field-format
+    {
+        width: 125% !important;
     }
 }
 
