@@ -4,25 +4,21 @@
 @section('title', 'Blocos e Unidades - Gerenciamento completo de unidades.')
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 mb-4">
-                <div class="card">
-                    <div class="card-header pb-0">
-                        <div class="row">
-
-                            <!-- Coluna do título -->
-                            <div class="col-md-6 col-12">
-                                <h5 class="mb-0">Histórico de entregas</h5>
-                                <p class="text-sm mb-0">
-                                    <span class="font-weight-bold">Gestão completa</span> de entregas
-                                </p>
-                            </div>
+    <div class="row">
+        <div class="col-12 mb-4">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <div class="row">
+                        <div class="col-md-6 col-12 text-center text-lg-start fine-tunning">
+                            <h5 class="mb-0">Histórico de entregas</h5>
+                            <p class="text-sm mb-0">
+                                <span class="font-weight-bold">Gestão completa</span> de entregas
+                            </p>
                         </div>
                     </div>
-                    <div class="card-body pb-2">
-                        @livewire('packets')
-                    </div>
+                </div>
+                <div class="card-body pb-2">
+                    @livewire('packets')
                 </div>
             </div>
         </div>
@@ -63,4 +59,6 @@
                 })
         </script>
     @endif
+
+    <link rel="stylesheet" href="{{ asset('assets/css/responsivity.css') }}">
 @endsection

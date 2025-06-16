@@ -6,6 +6,11 @@
         margin-bottom: 5px;
     }
 
+    .fine-tunning
+    {
+        margin-bottom: -8px !important;
+    }
+
     .first-item
     {
         margin-top: -15px !important;
