@@ -3,34 +3,31 @@
 @section('title', 'Blocos e Unidades - Gerenciamento completo de unidades.')
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 mb-4">
-                <div class="card">
-                    <div class="card-header pb-0">
-                        <div class="row">
+    <div class="row">
+        <div class="col-12 mb-4">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <div class="row">
+                        <div class="col-md-6 col-12 title-format">
+                            <h5 class="mb-0">Blocos e Unidades</h5>
+                            <p class="text-sm mb-0">
+                                <span class="font-weight-bold">Gerenciamento</span> completo
+                            </p>
+                        </div>
 
-                            <!-- Coluna do título -->
-                            <div class="col-md-6 col-12">
-                                <h5 class="mb-0">Blocos e Unidades</h5>
-                                <p class="text-sm mb-0">
-                                    <span class="font-weight-bold">Gerenciamento</span> completo
-                                </p>
-                            </div>
-
-                            <!-- Coluna dos botões -->
-                            <div class="col-md-6 col-12 d-flex justify-content-end gap-2 mt-2 mt-md-0">
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-unit"><i class="fa-solid fa-circle-plus icon-format"></i> Nova unidade</button>
-                                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#new-block"><i class="fa-solid fa-circle-plus icon-format"></i> Novo bloco</button>
-                            </div>
+                        <!-- Coluna dos botões -->
+                        <div class="col-md-6 col-12 d-flex justify-content-end gap-2 mt-2 mt-md-0">
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-unit"><i class="fa-solid fa-circle-plus icon-format"></i> Nova unidade</button>
+                            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#new-block"><i class="fa-solid fa-circle-plus icon-format"></i> Novo bloco</button>
                         </div>
                     </div>
-                    <div class="card-body px-0 pb-2">
-                        @livewire('units')
-                    </div>
+                </div>
+                <div class="card-body px-0 pb-2">
+                    @livewire('units')
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- Modal de blocos-->
@@ -108,7 +105,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
     @if(session('msg-success'))
         <script>
@@ -165,5 +161,6 @@
     @endif
 
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/responsivity.css') }}">
     <script src="{{ asset('assets/js/resources/new-unit.js') }}"></script>
 @endsection

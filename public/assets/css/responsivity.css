@@ -1,0 +1,27 @@
+/* Extra small (máximo 575px) */
+@media (max-width: 575px) {
+    .title-format{
+        text-align: center;
+        margin-bottom: 5px;
+    }
+}
+
+/* Small (de 576px até 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+
+}
+
+/* Medium (de 768px até 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    /* estilos para tablets */
+}
+
+/* Large (de 992px até 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* estilos para desktops */
+}
+
+/* Extra large (1200px ou maior) */
+@media (min-width: 1200px) {
+    /* estilos para monitores grandes */
+}
