@@ -57,18 +57,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     retakeButton.addEventListener('click', async () => {
-        photoInput.value = '';
-        preview.src = '';
-        previewContainer.classList.add('hidden');
-        retakeButton.classList.add('hidden');
-        startButton.classList.remove('hidden');
+    photoInput.value = '';
+    preview.src = '';
+    previewContainer.classList.add('hidden');
+    retakeButton.classList.add('hidden');
+    startButton.classList.remove('hidden');
 
-        //Reativando a câmera.
-        stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    // Detecta se é um dispositivo móvel
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    
+    // Se for móvel, tentamos a câmera traseira (facingMode: environment)
+    const constraints = isMobile ? {
+        video: {
+            facingMode: { exact: 'environment' } // Câmera traseira
+        }
+    } : {
+        video: true // No desktop, apenas tenta a câmera disponível
+    };
+
+    try {
+        // Reativando a câmera com as mesmas restrições
+        stream = await navigator.mediaDevices.getUserMedia(constraints);
         webcam.srcObject = stream;
         webcam.classList.remove('hidden');
         webcam.style.display = 'block';
         startButton.classList.add('hidden');
         captureButton.classList.remove('hidden');
-    });
+    } catch (err) {
+        console.error("Erro ao acessar a câmera: ", err);
+        alert("Não foi possível acessar a câmera.");
+    }
+});
+
 });
