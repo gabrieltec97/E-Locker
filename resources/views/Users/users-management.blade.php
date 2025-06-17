@@ -3,15 +3,14 @@
 @section('title', 'Usuários - Gerenciamento completo.')
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
+    <div class="row">
             <div class="col-12 mb-4">
                 <div class="card">
                     <div class="card-header pb-0">
                         <div class="row">
 
                             <!-- Coluna do título -->
-                            <div class="col-md-6 col-12">
+                            <div class="col-md-6 col-12 title-format">
                                 <h5 class="mb-0">Usuários</h5>
                                 <p class="text-sm mb-0">
                                     <span class="font-weight-bold">Gerenciamento</span> completo
@@ -19,12 +18,12 @@
                             </div>
 
                             <!-- Coluna dos botões -->
-                            <div class="col-md-6 col-12 d-flex justify-content-end gap-2 mt-2 mt-md-0">
+                            <div class="col-md-6 col-12 d-flex justify-content-center justify-content-lg-end gap-2 mt-2 mt-md-0">
                                 <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#new-block"><i class="fa-solid fa-user-plus icon-format"></i> Novo usuário</button>
                             </div>
                         </div>
                     </div>
-                    <div class="card-body px-0 pb-2">
+                    <div class="card-body px-0 pb-2 first-item">
                         <div class="table-responsive">
                             <table class="table align-items-center mb-0">
                                 <thead>
@@ -87,7 +86,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <!-- Modal de blocos-->
     <div class="modal fade" id="new-block" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -205,5 +203,6 @@
     @endif
 
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/responsivity.css') }}">
     <script src="{{ asset('assets/js/resources/new-user.js') }}"></script>
 @endsection
