@@ -11,12 +11,30 @@ document.addEventListener('DOMContentLoaded', () => {
     let canvas = document.createElement('canvas'); // Criar dinamicamente
 
     startButton.addEventListener('click', async () => {
-        stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    // Detecta se é um dispositivo móvel
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    
+    // Se for móvel, tentamos a câmera traseira (facingMode: environment)
+    const constraints = isMobile ? {
+        video: {
+            facingMode: { exact: 'environment' } // Câmera traseira
+        }
+    } : {
+        video: true // No desktop, apenas tenta a câmera disponível
+    };
+
+    try {
+        stream = await navigator.mediaDevices.getUserMedia(constraints);
         webcam.srcObject = stream;
         webcam.classList.remove('hidden');
         startButton.classList.add('hidden');
         captureButton.classList.remove('hidden');
-    });
+    } catch (err) {
+        console.error("Erro ao acessar a câmera: ", err);
+        alert("Não foi possível acessar a câmera.");
+    }
+});
+
 
     captureButton.addEventListener('click', () => {
         canvas.width = webcam.videoWidth;
