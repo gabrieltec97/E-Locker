@@ -49,6 +49,11 @@
     {
       width: 135% !important;  
     }
+
+    .dashboard-legend
+    {
+        margin-top: -7px;
+    }
 }
 
 /* Small (de 576px até 767px) */

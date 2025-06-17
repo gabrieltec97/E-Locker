@@ -92,9 +92,9 @@
 
         <div class="col-lg-12">
             <div class="card z-index-2">
-                <div class="card-header pb-0">
+                <div class="card-header pb-0 title-format">
                     <h5>Resumo de entregas</h5>
-                    <p class="text-sm">
+                    <p class="text-sm dashboard-legend">
                         <i class="fa fa-arrow-up text-success"></i>
                         <span class="font-weight-bold">Métricas ao longo</span> {{ date("Y") }}
                 </div>
@@ -111,29 +111,17 @@
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="row">
-                        <div class="col-lg-6 col-7">
+                        <div class="col-12 title-format">
                             <h5>Unidades com mais entregas</h5>
-                            <p class="text-sm mb-0">
+                            <p class="text-sm mb-0 dashboard-legend">
                                 <i class="fa fa-check text-info" aria-hidden="true"></i>
                                 <span class="font-weight-bold ms-1">Recebimento x Retirada</span> no mês atual
                             </p>
                         </div>
-                        <div class="col-lg-6 col-5 my-auto text-end">
-                            <div class="dropdown float-lg-end pe-4">
-                                <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa fa-ellipsis-v text-secondary"></i>
-                                </a>
-                                <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
-                                    <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
-                                    <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
-                                    <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="card-body px-0 pb-2">
-                    <div class="table-responsive">
+                    <div class="table-responsive first-item">
                         <table class="table align-items-center mb-0">
                             <thead>
                             <tr>
@@ -192,15 +180,15 @@
         </div>
         <div class="col-lg-4 col-md-6">
             <div class="card h-100">
-                <div class="card-header pb-0">
+                <div class="card-header pb-0 title-format">
                     <h5>Resumo mensal</h5>
-                    <p class="text-sm">
+                    <p class="text-sm dashboard-legend">
                         <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
                         <span class="font-weight-bold">Métricas resumidas</span> do mês atual
                     </p>
                 </div>
                 <div class="card-body p-3">
-                    <div class="timeline timeline-one-side">
+                    <div class="timeline timeline-one-side dashboard-legend">
                         <div class="timeline-block mb-3">
                             <div class="timeline-content">
                                 <h6 class="text-dark text-sm font-weight-bold mb-0">{{ $total }} Entregas recebidas</h6>
@@ -391,4 +379,6 @@
             },
         });
     </script>
+
+    <link rel="stylesheet" href="{{ asset('assets/css/responsivity.css') }}">
 @endsection
