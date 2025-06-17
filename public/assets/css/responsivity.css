@@ -25,6 +25,17 @@
     {
         width: 125% !important;
     }
+
+    .field-modal-format
+    {
+        width: 115% !important;
+    }
+
+    .livewire-input-format
+    {
+        margin-left: 15px; 
+        width: 90%;
+    }
 }
 
 /* Small (de 576px até 767px) */
@@ -38,11 +49,16 @@
 }
 
 /* Large (de 992px até 1199px) */
-@media (min-width: 992px) and (max-width: 1199px) {
-    /* estilos para desktops */
+@media (min-width: 992px){
+    .field-modal-format
+    {
+        width: 110% !important;
+    }
+
+    .livewire-input-format
+    {
+        margin-left: 20px; 
+        width: 96.5%;
+    }
 }
 
-/* Extra large (1200px ou maior) */
-@media (min-width: 1200px) {
-    /* estilos para monitores grandes */
-}

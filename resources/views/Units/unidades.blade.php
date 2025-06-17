@@ -45,7 +45,7 @@
                                 <form class="form-group" action="{{ route('blocos.store') }}" method="post">
                                     @csrf
                                     <span class="font-weight-bold modal-label">Número do bloco:</span>
-                                    <input type="number" name="block" class="form-control input-format mt-3" required>
+                                    <input type="number" name="block" class="form-control input-format field-modal-format mt-3" required>
                             </div>
                         </div>
                     </div>
@@ -78,13 +78,13 @@
                             <div class="row">
                                 <div class="col-12 col-lg-6 col-md-6">
                                     <span class="font-weight-bold modal-label">Número da unidade:</span>
-                                    <input type="number" name="unit" class="form-control input-format mt-3 mb-2" id="unit-number">
+                                    <input type="number" name="unit" class="form-control input-format field-modal-format mt-3 mb-2" id="unit-number">
                                     <span class="text-danger input-format font-weight-bold d-none" id="unit-number-info"><i class="fa-solid fa-circle-info"></i> Selecione a unidade</span>
                                 </div>
 
                                 <div class="col-12 col-lg-6 col-md-6">
                                     <span class="font-weight-bold modal-label">Número do bloco:</span>
-                                    <select name="block" class="form-control input-format mt-3 mb-2" id="unit">
+                                    <select name="block" class="form-control input-format field-modal-format mt-3 mb-2" id="unit">
                                         <option value="selecione" selected disabled>Selecione</option>
                                         @foreach($blocks as $block)
                                             <option value="{{$block->number}}">Bloco {{$block->number}}</option>
