@@ -1,5 +1,15 @@
 /* Extra small (máximo 575px) */
 @media (max-width: 575px) {
+    .no-mobile
+    {
+        display: none !important;
+    }
+
+    .mobile-format
+    {
+      margin-top: -5px !important;
+    }
+
     .title-format
     {
         text-align: center;
@@ -33,7 +43,7 @@
 
     .livewire-input-format
     {
-        margin-left: 15px; 
+        margin-left: 15px;
         width: 90%;
     }
 
@@ -47,7 +57,7 @@
 
     .sign-format
     {
-      width: 135% !important;  
+      width: 135% !important;
     }
 
     .dashboard-legend
@@ -75,7 +85,7 @@
 
     .livewire-input-format
     {
-        margin-left: 20px; 
+        margin-left: 20px;
         width: 96.5%;
     }
 

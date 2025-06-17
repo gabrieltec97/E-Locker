@@ -23878,6 +23878,7 @@ html {
   overflow-y: auto;
   padding: 0;
   box-shadow: none;
+  background-color: #FFFFFF;
 }
 
 .navbar-vertical.navbar-expand-xs .navbar-collapse {

@@ -184,7 +184,7 @@
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur"
          navbar-scroll="true">
         <div class="container-fluid py-1 px-3">
-            <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb" class="no-mobile">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:">Pages</a>
                     </li>
@@ -214,7 +214,7 @@
                     @endif
                 </h6>
             </nav>
-            <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+            <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 mobile-format" id="navbar">
                 <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                     <div class="input-group">
                         @php
@@ -223,19 +223,22 @@
                         @endphp
 
                         @if($hour >= 5 && $hour < 12)
-                            <h6 class="mt-2">Bom dia, {{ $user->name }}</h6>
+                            <h6 class="mt-2" style="margin-right: -8px;">Bom dia, {{ $user->name }}</h6>
                         @elseif($hour >= 12 && $hour < 18)
-                            <h6 class="mt-2">Boa tarde, {{ $user->name }}</h6>
+                            <h6 class="mt-2" style="margin-right: -8px;">Boa tarde, {{ $user->name }}</h6>
                         @else
-                            <h6 class="mt-2">Boa noite, {{ $user->name }}</h6>
+                            <h6 class="mt-2" style="margin-right: -8px;">Boa noite, {{ $user->name }}</h6>
                         @endif
                     </div>
                 </div>
-                <ul class="navbar-nav  justify-content-end">
-                    <li class="nav-item d-flex align-items-center">
-                        <!-- Authentication -->
-                        <h6 class="mt-2" id="logout">Sair</h6>
+                <ul class="navbar-nav justify-content-end">
+                    <li class="nav-item d-flex align-items-center no-mobile">
+                        <p class="mt-3 font-weight-bold" style="font-size: 12px;">|</p>
                     </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <h6 class="mt-2" id="logout" style="margin-left: 8px;">Sair</h6>
+                    </li>
+
                     <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                         <a href="javascript:" class="nav-link text-body p-0" id="iconNavbarSidenav">
                             <div class="sidenav-toggler-inner">
@@ -244,38 +247,6 @@
                                 <i class="sidenav-toggler-line"></i>
                             </div>
                         </a>
-                    </li>
-                    <li class="nav-item px-3 d-flex align-items-center">
-                        <a href="javascript:" class="nav-link text-body p-0">
-                            <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                        <a href="javascript:" class="nav-link text-body p-0" id="dropdownMenuButton"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa fa-bell cursor-pointer"></i>
-                        </a>
-                        <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
-                            aria-labelledby="dropdownMenuButton">
-                            <li class="mb-2">
-                                <a class="dropdown-item border-radius-md" href="javascript:">
-                                    <div class="d-flex py-1">
-                                        <div class="my-auto">
-                                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
-                                        </div>
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="text-sm font-weight-normal mb-1">
-                                                <span class="font-weight-bold">New message</span> from Laur
-                                            </h6>
-                                            <p class="text-xs text-secondary mb-0 ">
-                                                <i class="fa fa-clock me-1"></i>
-                                                13 minutes ago
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </div>
@@ -286,20 +257,6 @@
         @yield('content')
     </div>
 </main>
-<div class="fixed-plugin">
-    <div class="card shadow-lg ">
-        <a href="javascript:void(0)" class="switch-trigger background-color">
-            <div class="badge-colors my-2 text-start">
-                <span class="badge filter bg-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
-                <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
-                <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
-                <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
-                <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
-                <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
-            </div>
-        </a>
-    </div>
-</div>
 <!--   Core JS Files   -->
 <script src="../assets/js/core/popper.min.js"></script>
 <script src="../assets/js/core/bootstrap.min.js"></script>

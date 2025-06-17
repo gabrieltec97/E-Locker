@@ -7,7 +7,7 @@
         <div class="col-12 mb-3">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-12">
-                    <div class="card">
+                    <div class="card first-item">
                         <span class="mask bg-primary opacity-10 border-radius-lg"></span>
                         <div class="card-body p-3 position-relative">
                             <div class="row">
