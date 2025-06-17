@@ -75,12 +75,12 @@
                                             <div class="row">
                                                 <div class="col-12 col-lg-6 col-md-6">
                                                     <span class="font-weight-bold modal-label">Número da unidade:</span>
-                                                    <input type="number" name="unit" class="form-control input-format mt-2" value="{{ $unit->number }}">
+                                                    <input type="number" name="unit" class="form-control input-format mt-2 field-modal-format" value="{{ $unit->number }}">
                                                 </div>
 
                                                 <div class="col-12 col-lg-6 col-md-6 mt-3 mt-lg-0">
                                                     <span class="font-weight-bold modal-label">Número do bloco:</span>
-                                                    <select name="block" class="form-control input-format mt-2">
+                                                    <select name="block" class="form-control input-format field-modal-format mt-2">
                                                         <option selected disabled>Selecione</option>
                                                         @foreach($blocks as $block)
                                                             <option value="{{$block->number}}" {{ $unit->block == $block->number ? 'selected' : '' }}>Bloco {{$block->number}}</option>
