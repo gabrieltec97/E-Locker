@@ -65,7 +65,7 @@
                                     @if($packet->comments == null)
                                         <textarea class="form-control input-format field-format mt-3 comments" cols="10" rows="5" disabled>Sem comentários adicionados</textarea>
                                     @else
-                                        <textarea class="form-control input-format mt-3 comments" cols="10" rows="5" disabled>{{ $packet->comments }}</textarea>
+                                        <textarea class="form-control input-format field-format mt-3 comments" cols="10" rows="5" disabled>{{ $packet->comments }}</textarea>
                                     @endif
                                 </div>
                             </div>
