@@ -1,6 +1,6 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-# E-Locker - Registro de Entregas (Em desenvolvimento)
+# E-Locker - Registro de Entregas
 Sistema de recebimento e registro de entregas para condomínios, onde o mesmo dispõe de um perfil de autenticação onde o usuário irá logar e registrar a encomenda recebida, registrando por nome da empresa, nome do entregador (opcional), foto, descrição e a unidade destinatária. 
 
 Para a retirada da entrega, o mesmo registra o nome da pessoa que retirou, sua assinatura e foto (opcional). Venha conferir!
