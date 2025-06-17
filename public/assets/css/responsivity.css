@@ -36,6 +36,19 @@
         margin-left: 15px; 
         width: 90%;
     }
+
+    .image-format
+    {
+        width: 125%;
+        height: 90%;
+        border-radius: 10px;
+        margin-left: -25px;
+    }
+
+    .sign-format
+    {
+      width: 135% !important;  
+    }
 }
 
 /* Small (de 576px até 767px) */
@@ -59,6 +72,20 @@
     {
         margin-left: 20px; 
         width: 96.5%;
+    }
+
+    .signature-field-format
+    {
+        width: 400px;
+        height: 200px;
+    }
+
+    .image-format
+    {
+        width: 100%;
+        height: 300px;
+        border-radius: 10px;
+        margin-left: -25px;
     }
 }
 

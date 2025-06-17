@@ -30,14 +30,6 @@
     cursor: pointer;
 }
 
-.image-format
-{
-    width: 100%;
-    height: 300px;
-    border-radius: 10px;
-    margin-left: -25px;
-}
-
 .dash-icon
 {
     font-size: 24px;
