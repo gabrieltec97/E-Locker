@@ -48,15 +48,36 @@ O sistema disponibiliza 2 (dois) tipos de usuário:
 - Administrador
 - Operador
 
+## 🌐 O projeto está online!
+
+Acesse em: (https://e-locker.online)
+
 ## 🛠️ Como rodar o projeto
 
 1. Tenha em sua máquina um ambiente que faça a emulação de um servidor, como Xampp ou Docker instalado e parametrizado.
 2. Clone o repositório:
 ```bash
-git clone git@github.com:gabrieltec97/E-Locker
+git clone https://github.com/gabrieltec97/E-Locker.git
 ```
-3. A continuar daqui.
-
+3. Copie o arquivo .env.example para .env
+4. Instale as dependências com o Composer:
+```bash
+composer install
+```
+5. Gere a chave de API do Laravel.
+```bash
+php (ou sail) artisan key:generate
+```
+6. Parametrize crie seu banco de dados e preenchendo com as variáveis de nome do banco, usuário, senha e porta no arquivo .env.
+7. Rode as migrations e seeders necessárias para dar a configuração inicial para o sistema executar corretamente.
+```bash
+php (ou sail) artisan migrate --seed
+```
+8. Inicie o servidor.
+```bash
+php (ou sail) artisan serve
+```
+9. Pronto! Agora é só acessar http://localhost:8000
 
 ## 📸 Screenshots
 
