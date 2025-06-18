@@ -1,0 +1,44 @@
+body {
+    background: linear-gradient(135deg, #27272a, #f97316);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+}
+
+.card h4 {
+    color: #27272a;
+}
+
+.card-format {
+    max-width: 420px;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: #f97316;
+    border-color: #f97316;
+    font-weight: bold !important;
+}
+
+.btn-primary:hover {
+    background-color: #d25f10;
+    border-color: #d25f10;
+}
+
+.form-check-label,
+.form-label,
+a {
+    color: #27272a;
+}
+
+.form-control:focus {
+    border-color: #f97316;
+    box-shadow: 0 0 0 0.2rem rgba(249, 115, 22, 0.25);
+}
