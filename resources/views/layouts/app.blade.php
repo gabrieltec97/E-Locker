@@ -5,6 +5,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link sizes="76x76" href="../assets/img/e-locker.png">
+    <link rel="icon" type="image/png" href="../assets/img/e-locker.png">
     <title>
         @yield('title')
     </title>
@@ -193,7 +194,7 @@
                         @elseif(Route::is('usuarios.index'))
                             <span class="font-weight-bold">Usuários</span>
                         @else
-                            <span class="font-weight-bold">Informações</span>
+                            <span class="font-weight-bold">Dashboard</span>
                         @endif
                     </li>
                 </ol>
@@ -207,7 +208,7 @@
                     @elseif(Route::is('usuarios.index'))
                         Gerenciamento de usuários
                     @else
-                        Dashboard completo
+                        Informações detalhadas
                     @endif
                 </h6>
             </nav>
