@@ -63,7 +63,11 @@ class UnitController extends Controller
      */
     public function show(string $id)
     {
-        //
+        //Estamos utilizando deleção aqui por conta do livewire não aceitar método de delete.
+        $unit = Unit::find($id);
+        $unit->delete();
+
+        return redirect()->back()->with('msg-success', 'Unidade deletada com sucesso!');
     }
 
     /**
@@ -71,7 +75,7 @@ class UnitController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        echo 'edit';
     }
 
     /**
