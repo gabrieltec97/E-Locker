@@ -11,6 +11,7 @@
 
 <div class="container">
     <div class="card shadow p-4 mx-auto card-format">
+        <img src="{{ asset('assets/img/e-locker.png') }}" class="img-format mx-auto mb-3">
         <h4 class="mb-4 text-center font-weight-bold"><b>Área de membros</b></h4>
         <form method="POST" action="{{ route('login') }}">
             @csrf
