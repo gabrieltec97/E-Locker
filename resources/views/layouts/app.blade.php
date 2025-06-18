@@ -106,7 +106,7 @@
                             <span class="font-weight-bold">Unidades</span>
                         @elseif(Route::is('usuarios.index'))
                             <span class="font-weight-bold">Usuários</span>
-                        @else
+                        @elseif(Route::is('dashboard'))
                             <span class="font-weight-bold">Dashboard</span>
                         @endif
                     </li>
@@ -120,7 +120,7 @@
                         Gerenciamento de unidades
                     @elseif(Route::is('usuarios.index'))
                         Gerenciamento de usuários
-                    @else
+                    @elseif(Route::is('dashboard'))
                         Informações detalhadas
                     @endif
                 </h6>
