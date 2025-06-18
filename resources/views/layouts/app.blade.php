@@ -26,7 +26,7 @@
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
            aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html "
+        <a class="navbar-brand m-0" href="{{ \route('dashboard') }}"
            target="_blank">
             <img src="{{ asset('assets/img/e-locker.png') }}" class="navbar-brand-img h-100" alt="main_logo">
             <span class="ms-1 font-weight-bold">E-Locker 2025</span>
@@ -185,17 +185,15 @@
         <div class="container-fluid py-1 px-3">
             <nav aria-label="breadcrumb" class="no-mobile">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                    <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:">Pages</a>
-                    </li>
                     <li class="breadcrumb-item text-sm text-dark active" aria-current="page">
                         @if(Route::is('entregas.index') || Route::is('entregas.create'))
-                            Entregas
+                            <span class="font-weight-bold">Entregas</span>
                         @elseif(Route::is('unidades.index'))
-                            Unidades
+                            <span class="font-weight-bold">Unidades</span>
                         @elseif(Route::is('usuarios.index'))
-                            Usuários
+                            <span class="font-weight-bold">Usuários</span>
                         @else
-                            Dashboard
+                            <span class="font-weight-bold">Informações</span>
                         @endif
                     </li>
                 </ol>

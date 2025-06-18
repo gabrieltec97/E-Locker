@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Dashboard - Informações completas sobre entregas cadastradas.')
 
 @section('content')
     <div class="row">
