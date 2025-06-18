@@ -102,5 +102,10 @@
         border-radius: 10px;
         margin-left: -25px;
     }
+
+    .sign-format
+    {
+        width: 100% !important;
+    }
 }
 
