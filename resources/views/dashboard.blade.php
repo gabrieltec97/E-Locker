@@ -44,14 +44,14 @@
                                         <i class="fa-regular fa-thumbs-up text-dark dash-icon"></i>
                                     </div>
                                     <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                                        @if ($totalTakenToday == 0 || $totalTakenToday == 1)
+                                        @if ($totalTakenToday == 1)
                                             {{ $totalTakenToday }} Retirada
                                         @else
                                             {{ $totalTakenToday }} Retiradas
                                         @endif
                                     </h5>
                                     <span class="text-white text-sm">
-                                         @if ($totalTakenToday == 0 || $totalTakenToday == 1)
+                                         @if ($totalTakenToday == 1)
                                             Realizada hoje
                                         @else
                                             Realizadas hoje
