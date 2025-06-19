@@ -211,7 +211,7 @@
                         <div class="timeline-block mb-3">
                             <div class="timeline-content">
                                 <h6 class="text-dark text-sm font-weight-bold mb-0">
-                                    @if ($cancelled == 0 || $cancelled == 1)
+                                    @if ($cancelled == 1)
                                         {{ $cancelled }} entrega cancelada
                                     @else
                                         {{ $cancelled }} entregas canceladas
