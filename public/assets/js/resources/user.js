@@ -35,6 +35,6 @@ document.getElementById('save').addEventListener('click', function () {
     }else{
         text.classList.add('d-none');
         spinner.classList.remove('d-none');
-        // form.submit();
+        form.submit();
     }
 });
