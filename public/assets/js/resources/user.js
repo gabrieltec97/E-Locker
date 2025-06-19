@@ -29,7 +29,7 @@ document.getElementById('save').addEventListener('click', function () {
     }else if(email == ''){
         message = 'Preencha o campo de e-mail';
         playNotif(message);
-    }else if(password != '' || password.length < 5){
+    }else if(password.length >= 1 || password.length < 5){
         message = 'A senha deve conter pelo menos 5 caracteres';
         playNotif(message);
     }else{
