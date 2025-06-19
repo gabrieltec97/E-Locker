@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Blocos e Unidades - Gerenciamento completo de unidades.')
+@section('title', 'Novo Registro - Cadastre uma nova entrega.')
 
 @section('content')
     <div class="row">
