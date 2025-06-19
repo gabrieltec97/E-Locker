@@ -16,14 +16,14 @@
                                         <i class="fa-solid fa-box-open text-dark dash-icon"></i>
                                     </div>
                                     <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                                        @if ($totalReceivedToday == 0 || $totalReceivedToday == 1)
+                                        @if ($totalReceivedToday == 1)
                                             {{ $totalReceivedToday }} Entrega
                                         @else
                                             {{ $totalReceivedToday }} Entregas
                                         @endif
                                     </h5>
                                     <span class="text-white text-sm">
-                                         @if ($totalReceivedToday == 0 || $totalReceivedToday == 1)
+                                         @if ($totalReceivedToday == 1)
                                             Recebida hoje
                                         @else
                                             Recebidas hoje
