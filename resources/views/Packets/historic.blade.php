@@ -1,7 +1,7 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 
-@section('title', 'Blocos e Unidades - Gerenciamento completo de unidades.')
+@section('title', 'Histórico de entregas - Gerenciamento completo de registros.')
 
 @section('content')
     <div class="row">
