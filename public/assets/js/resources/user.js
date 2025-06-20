@@ -22,6 +22,7 @@ document.getElementById('save').addEventListener('click', function () {
     const name = document.getElementById('name').value;
     const surname = document.getElementById('secondName').value;
     const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
     if (name == '' || surname == ''){
         message = 'Preencha corretamente o nome e sobrenome';
@@ -29,8 +30,9 @@ document.getElementById('save').addEventListener('click', function () {
     }else if(email == ''){
         message = 'Preencha o campo de e-mail';
         playNotif(message);
-    }else if(password.length >= 1 || password.length < 5){
-        message = 'A senha deve conter pelo menos 5 caracteres';
+    }else if(password.length > 0 && password.length < 5){
+        console.log(password.length);
+        message = 'A nova senha deve conter pelo menos 5 caracteres';
         playNotif(message);
     }else{
         text.classList.add('d-none');

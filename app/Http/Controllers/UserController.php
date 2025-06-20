@@ -81,13 +81,11 @@ class UserController extends Controller
             'name' => 'required',
             'secondName' => 'required',
             'email' => 'required',
-            'password' => 'required',
             'profile' => 'required',
         ], [
             'name.required' => 'Usuário não cadastrado. O nome do usuário é obrigatório.',
             'secondName.required' => 'Usuário não cadastrado. O sobrenome do usuário é obrigatório.',
             'email.required' => 'Usuário não cadastrado. O e-mail do usuário é obrigatório.',
-            'password.required' => 'Usuário não cadastrado. A senha do usuário é obrigatória',
             'profile.required' => 'Usuário não cadastrado. É necessário escolher um perfil para o usuário',
         ]);
 
