@@ -52,7 +52,15 @@
                             </div>
 
                             <div class="col-12">
-
+                                <span class="font-weight-bold modal-label">Blocos cadastrados:</span>
+                                <div class="row mt-3">
+                                   @foreach($blocks as $key => $value)
+                                        <div class="col-2">
+                                            <span class="<?= $key == 0 ? 'first-format' : 'block-format'; ?> font-weight-bold">{{ $value->number }}</span>
+                                            <i title="Deletar bloco" class="fa-solid fa-trash text-danger cursor-pointer block-del"></i>
+                                        </div>
+                                   @endforeach
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -67,6 +75,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- Modal de unidades-->
     <div class="modal fade" id="new-unit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

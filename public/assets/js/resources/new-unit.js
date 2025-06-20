@@ -32,7 +32,6 @@ document.getElementById('registerUnit').addEventListener('click', function (){
 });
 
 const field = document.getElementById('block');
-
 field.addEventListener('keyup', function (event) {
     const rawValue = parseInt(document.getElementById('block').value);
     const checkValue = /[^0-9]/.test(rawValue);
@@ -48,7 +47,6 @@ field.addEventListener('keyup', function (event) {
         blockText.classList.add('d-none');
     }
 });
-
 document.getElementById('registerBlock').addEventListener('click', function (){
     const rawValue = parseInt(document.getElementById('block').value);
     const checkValue = /^\d+$/.test(rawValue);
@@ -65,3 +63,6 @@ document.getElementById('registerBlock').addEventListener('click', function (){
        document.getElementById('new-block-form').submit();
     }
 });
+
+
+

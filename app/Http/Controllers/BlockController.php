@@ -46,6 +46,6 @@ class BlockController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        echo $id;
     }
 }

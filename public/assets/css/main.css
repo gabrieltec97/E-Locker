@@ -88,3 +88,14 @@
 {
     color: black !important;
 }
+
+.block-format, .first-format
+{
+    margin-left: -25px;
+    color: black !important;
+}
+
+.block-del
+{
+    font-size: 13px !important;
+}
