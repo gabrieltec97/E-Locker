@@ -35,7 +35,7 @@
 
                                     <div class="col-12 col-lg-6 mt-3 mt-lg-0">
                                         <span class="font-weight-bold modal-label">Sobrenome:</span>
-                                        <input type="text" id="secondName" name="name" value="{{ $user->surname }}" class="form-control input-format mt-2 field-format">
+                                        <input type="text" id="secondName" name="secondName" value="{{ $user->surname }}" class="form-control input-format mt-2 field-format">
                                     </div>
 
                                     <div class="col-12 col-lg-6 mt-3">
