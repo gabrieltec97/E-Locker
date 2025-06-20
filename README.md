@@ -97,7 +97,7 @@ php (ou sail) artisan serve
 
 ![Entregas](assets/historico-entregas.png)
 
-<h4>Entregue o pacote ao destinatário ou a terceiros autorizados e dê baixa no sistema.</h4>
+<h4>Entregue o pacote ao destinatário ou a terceiros autorizados, colha a assinatura de quem retirou e dê baixa no sistema.</h4>
 
 ![Entregas](assets/retirada-entrega.png)
 
