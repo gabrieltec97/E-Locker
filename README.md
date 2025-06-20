@@ -81,4 +81,30 @@ php (ou sail) artisan serve
 
 ## 📸 Screenshots
 
-Inserir imagens
+<h4>Dashboard informativo com gráfico de entregas recebidas x retiradas ao longo dos meses.</h4>
+
+![Dashboard](assets/dashboard-parte1.png)
+
+<h4>Ao rolar a página, você encontra o informativo das 5 unidades que mais recebem encomendas e sua taxa de retirada. Ao lado temos as informações gerais das entregas cadastradas.</h4>
+
+![Dashboard](assets/dashboard-parte2.png)
+
+<h4>Cadastre uma nova entrega preenchendo os campos solicitados e tirando uma foto do pacote.</h4>
+
+![Entregas](assets/nova-entrega.png)
+
+<h4>Você pode pesquisar e gerenciar as entregas via histórico.</h4>
+
+![Entregas](assets/historico-entregas.png)
+
+<h4>Entregue o pacote ao destinatário ou a terceiros autorizados e dê baixa no sistema.</h4>
+
+![Entregas](assets/retirada-entrega.png)
+
+<h4>Gestão completa de unidades do condomínio com bloco e unidade.</h4>
+
+![Unidades](assets/unidades.png)
+
+<h4>Gestão completa de usuários do sistema e seu perfil.</h4>
+
+![Usuários](assets/usuarios.png)
