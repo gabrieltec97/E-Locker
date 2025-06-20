@@ -35,14 +35,15 @@ const field = document.getElementById('block');
 
 field.addEventListener('keyup', function (event) {
     const rawValue = parseInt(document.getElementById('block').value);
-    const checkValue = /^\d+$/.test(rawValue);
+    const checkValue = /[^0-9]/.test(rawValue);
     const blockInfo = document.getElementById('block-info');
     const blockText = document.getElementById('block-text');
 
     blockInfo.classList.add('d-none');
 
-    if (checkValue != true) {
+    if (checkValue == true) {
         blockText.classList.remove('d-none');
+
     } else {
         blockText.classList.add('d-none');
     }
@@ -51,12 +52,16 @@ field.addEventListener('keyup', function (event) {
 document.getElementById('registerBlock').addEventListener('click', function (){
     const rawValue = parseInt(document.getElementById('block').value);
     const checkValue = /^\d+$/.test(rawValue);
+    const text = document.getElementById('registerBlock').querySelector('.button-text');
+    const spinner = document.getElementById('registerBlock').querySelector('.spinner-border');
 
     if (field.value == ''){
        blockInfo.classList.remove('d-none');
     }else if(checkValue != true){
         blockText.classList.remove('d-none');
     }else{
-        alert('foi');
+        text.classList.add('d-none');
+        spinner.classList.remove('d-none');
+       document.getElementById('new-block-form').submit();
     }
 });
