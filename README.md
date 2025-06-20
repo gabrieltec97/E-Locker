@@ -81,7 +81,7 @@ php (ou sail) artisan serve
 
 ## 📸 Screenshots
 
-<h4>Dashboard informativo com gráfico de entregas recebidas x retiradas ao longo dos meses.</h4>
+<h4>Com o usuário de administrador, acesse o dashboard informativo com gráfico de entregas recebidas x retiradas ao longo dos meses.</h4>
 
 ![Dashboard](assets/dashboard-parte1.png)
 
@@ -89,7 +89,7 @@ php (ou sail) artisan serve
 
 ![Dashboard](assets/dashboard-parte2.png)
 
-<h4>Cadastre uma nova entrega preenchendo os campos solicitados e tirando uma foto do pacote.</h4>
+<h4>O usuário de operador pode cadastrar uma nova entrega preenchendo os campos solicitados e tirando uma foto do pacote.</h4>
 
 ![Entregas](assets/nova-entrega.png)
 
@@ -101,7 +101,7 @@ php (ou sail) artisan serve
 
 ![Entregas](assets/retirada-entrega.png)
 
-<h4>Gestão completa de unidades do condomínio com bloco e unidade.</h4>
+<h4>Com o usuário de administrador, faça a gestão completa de unidades do condomínio com bloco e unidade.</h4>
 
 ![Unidades](assets/unidades.png)
 
