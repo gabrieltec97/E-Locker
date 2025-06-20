@@ -42,10 +42,17 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-12">
-                                <form class="form-group" action="{{ route('blocos.store') }}" method="post">
+                                <form class="form-group" id="new-block-form" action="{{ route('blocos.store') }}" method="post">
                                     @csrf
                                     <span class="font-weight-bold modal-label">Número do bloco:</span>
-                                    <input type="number" name="block" class="form-control input-format field-modal-format mt-3" required>
+                                    <input type="number" id="block" name="block" class="form-control input-format field-modal-format mt-3 mb-2">
+                                    <span class="text-danger input-format font-weight-bold d-none" id="block-info"><i class="fa-solid fa-circle-info"></i> Digite o número do novo bloco</span>
+                                    <span class="text-danger input-format font-weight-bold d-none" id="block-text"><i class="fa-solid fa-circle-info"></i> O preencha o bloco apenas com números.</span>
+                                </form>
+                            </div>
+
+                            <div class="col-12">
+
                             </div>
                         </div>
                     </div>
@@ -56,8 +63,6 @@
                         <span class="button-text"><i class="fa-solid fa-circle-check icon-format"></i> Cadastrar</span>
                         <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                     </button>
-
-                    </form>
                 </div>
             </div>
         </div>

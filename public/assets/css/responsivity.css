@@ -80,7 +80,7 @@
 @media (min-width: 992px){
     .field-modal-format
     {
-        width: 100% !important;
+        width: 110% !important;
     }
 
     .livewire-input-format
