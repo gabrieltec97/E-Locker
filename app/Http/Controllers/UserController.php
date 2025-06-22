@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
@@ -128,9 +130,12 @@ class UserController extends Controller
             return redirect()->back()->with('msg-error', 'Não é permitido excluir o usuário de administrador master.');
         }
 
-        $user = User::find($id);
-        $user->delete();
-
-        return redirect()->back()->with('msg-success', 'Usuário deletado com sucesso!');
+        if (Auth::user()->id == $id) {
+            return redirect()->back()->with('msg-error', 'Não é permitido excluir o próprio usuário. Contate o administrador.');
+        }else{
+            $user = User::find($id);
+            $user->delete(); 
+            return redirect()->back()->with('msg-success', 'Usuário deletado com sucesso!');
+        }
     }
 }
