@@ -51,7 +51,7 @@
 
                                 <div class="col-12 col-lg-4 mt-3 mt-lg-0">
                                     <span class="font-weight-bold modal-label">Destinatário:</span>
-                                    <input type="text" value="{{ $packet->owner }}" class="form-control input-format mt-2 cursor-pointer field-format" disabled>
+                                    <input type="text" value="{{ $packet->owner }}" id="owner" class="form-control input-format mt-2 cursor-pointer field-format" disabled>
                                 </div>
 
                                 <div class="col-12 col-lg-4 mt-3 mt-lg-0">

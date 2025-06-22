@@ -68,8 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
 
-
-
         text.classList.add('d-none');
         spinner.classList.remove('d-none');
 
@@ -78,7 +76,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Aguarde pequeno delay para garantir preenchimento do input
         setTimeout(() => form.submit(), 100);
+    });
 
+    const status = document.getElementById('status');
 
+    status.addEventListener('change', function(){
+        const owner = document.getElementById('owner').value;
+
+        if (status.value == 'Retirado pelo destinatário') {
+            document.getElementById('recipient').value = owner;
+        }else if(status.value == 'Retirado por terceiros'){
+            document.getElementById('recipient').value = '';
+            document.getElementById('recipient').focus();
+        }
+        else{
+            document.getElementById('recipient').value = '';
+        }    
     });
 });
