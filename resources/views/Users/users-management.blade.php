@@ -49,8 +49,12 @@
                                                 </div>
                                             </td>
                                             <td class="align-middle text-center text-sm">
-                                                <a href="{{ route('usuarios.show', $user->id) }}"><i class="fa-solid fa-user-pen cursor-pointer maintence-icon"></i></a>
-                                                <i class="fa-solid fa-trash cursor-pointer text-danger" id="delete{{$user->id}}"></i>
+                                                @if($user->id != 1)
+                                                    <a href="{{ route('usuarios.show', $user->id) }}"><i class="fa-solid fa-user-pen cursor-pointer maintence-icon"></i></a>
+                                                    <i class="fa-solid fa-trash cursor-pointer text-danger" id="delete{{$user->id}}"></i>
+                                                @else
+                                                    <span class="text-dark">Não aplicável</span>
+                                                @endif
                                             </td>
                                         </tr>
 

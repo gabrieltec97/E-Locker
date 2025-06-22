@@ -124,6 +124,10 @@ class UserController extends Controller
 
     public function destroy(string $id)
     {
+        if ($id == 1) {
+            return redirect()->back()->with('msg-error', 'Não é permitido excluir o usuário de administrador master.');
+        }
+
         $user = User::find($id);
         $user->delete();
 
