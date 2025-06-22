@@ -105,7 +105,8 @@
 
     .sign-format
     {
-        width: 100% !important;
+        width: 300px !important;
+        height: 200px !important;
     }
 }
 
