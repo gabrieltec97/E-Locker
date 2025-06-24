@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('signature')->nullable();
             $table->timestamps();
 
-            $table->foreign('unit')->references('id')->on('units')->cascadeOnDelete();
+            //$table->foreign('unit')->references('id')->on('units')->cascadeOnDelete();
         });
     }
 
