@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string('withdrawn_by')->nullable();
             $table->string('signature')->nullable();
             $table->timestamps();
+
+            $table->foreign('unit')->references('id')->on('units')->cascadeOnDelete();
         });
     }
 
