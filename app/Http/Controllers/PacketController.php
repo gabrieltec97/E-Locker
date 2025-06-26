@@ -11,17 +11,11 @@ use Illuminate\Support\Facades\File;
 
 class PacketController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return view('Packets.historic');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $units = Unit::all();
@@ -56,9 +50,6 @@ class PacketController extends Controller
         return $mes_extenso["$mes"];
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -112,9 +103,6 @@ class PacketController extends Controller
         return redirect()->back()->with('msg-success', 'Entrega cadastrada com sucesso!');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         $packet = Packet::find($id);
@@ -124,17 +112,6 @@ class PacketController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         if ($request->status == 'Cancelado'){
@@ -181,13 +158,5 @@ class PacketController extends Controller
         $packet->save();
 
         return redirect()->route('entregas.index')->with('msg-success', 'Produto entregue com sucesso!');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }
