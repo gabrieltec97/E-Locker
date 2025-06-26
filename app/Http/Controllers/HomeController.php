@@ -188,5 +188,4 @@ class HomeController extends Controller
             'count' => $count
         ]);
     }
-
 }
