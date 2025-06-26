@@ -98,9 +98,10 @@
     .image-format
     {
         width: 100%;
-        height: 300px;
+        height: 100%;
         border-radius: 10px;
         margin-left: -25px;
+        margin-bottom: 20px !important;
     }
 
     .sign-format

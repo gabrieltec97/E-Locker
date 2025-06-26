@@ -72,7 +72,7 @@
                                 <form action="{{ route('entregas.update', $packet->id) }}" method="post" id="upd-packet">
                                     @csrf
                                     @method('PUT')
-                                    <div class="row mt-3">
+                                    <div class="row mt-3 mb-5">
                                         <div class="col-12 col-lg-4">
                                             <span class="font-weight-bold modal-label ">Status:</span>
                                             <select name="status" id="status" class="form-control input-format field-format mt-2" {{ ($packet->status == 'Retirado por terceiros' || $packet->status == 'Retirado pelo destinatário') ? 'disabled' : '' }}>
@@ -82,7 +82,6 @@
                                                 <option value="Retirado pelo destinatário" {{ $packet->status == 'Retirado pelo destinatário' ? 'selected' : '' }}>Retirado pelo destinatário</option>
                                             </select>
                                         </div>
-
 
                                         <div class="col-12 col-lg-4 mt-3 mt-lg-0">
                                             <span class="font-weight-bold modal-label">Retirado por:</span>
@@ -116,7 +115,7 @@
                                             </div>
                                         @endif
 
-                                        <div class="col-12 col-lg-6 mt-3 mt-lg-4 mb-3">
+                                        <div class="col-12 col-lg-6 mt-3 mt-lg-4">
                                             <span class="font-weight-bold modal-label">Imagem:</span>
                                             <br>
                                             <img src="{{ asset($packet->image) }}" class="image-format mt-3">
