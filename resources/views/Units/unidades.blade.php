@@ -57,8 +57,29 @@
                                    @foreach($blocks as $key => $value)
                                         <div class="col-2">
                                             <span class="<?= $key == 0 ? 'first-format' : 'block-format'; ?> font-weight-bold">{{ $value->number }}</span>
-                                            <i title="Deletar bloco" class="fa-solid fa-trash text-danger cursor-pointer block-del"></i>
+                                            <!-- Atualizado com data-* -->
+                                            <i class="fa-solid fa-trash cursor-pointer text-danger" data-bs-dismiss="modal" id="delete-block{{$value->id}}"></i>
                                         </div>
+
+                                        <form action="{{ route('blocos.destroy', $value->id) }}" id="block-delete{{ $value->id }}" method="post" hidden>@csrf @method('DELETE')</form>
+
+                                        <script>
+                                           document.getElementById('delete-block{{$value->id}}').addEventListener('click', function (){
+                                               Swal.fire({
+                                                   html: `Tem certeza que deseja excluir o bloco {{ $value->number }}</b>?`,
+                                                   icon: "question",
+                                                   showCancelButton: true,
+                                                   cancelButtonText: 'Voltar',
+                                                   confirmButtonText: 'Excluir',
+                                                   confirmButtonColor: '#F97316',
+                                                   focusCancel: true
+                                               }).then((result) => {
+                                                   if (result.isConfirmed) {
+                                                       document.getElementById(`block-delete{{ $value->id }}`).submit();
+                                                   }
+                                               });
+                                           });
+                                        </script>
                                    @endforeach
                                 </div>
                             </div>

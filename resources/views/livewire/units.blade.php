@@ -114,7 +114,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/responsivity.css') }}">
 </div>
 
-<!-- Script Global para deletar (funciona após Livewire atualizar a DOM) -->
+<!-- Script Global para deletar (Após Livewire atualizar a DOM) -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener('click', function (e) {
