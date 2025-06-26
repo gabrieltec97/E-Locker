@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\DB;
 
 class UnitController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $blocks = Block::all();
@@ -20,17 +17,6 @@ class UnitController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -58,9 +44,6 @@ class UnitController extends Controller
         return redirect()->back()->with('msg-success', 'Unidade cadastrada com sucesso!');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         //Estamos utilizando deleção aqui por conta do livewire não aceitar método de delete.
@@ -70,17 +53,6 @@ class UnitController extends Controller
         return redirect()->back()->with('msg-success', 'Unidade deletada com sucesso!');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        echo 'edit';
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $request->validate([
@@ -108,9 +80,6 @@ class UnitController extends Controller
         return redirect()->back()->with('msg-success', 'Alterações realizadas com sucesso!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $unit = Unit::find($id);
