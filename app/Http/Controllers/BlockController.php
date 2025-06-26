@@ -25,25 +25,6 @@ class BlockController extends Controller
         return redirect()->back()->with('msg-success', 'Bloco cadastrado com sucesso!');;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $block = Block::find($id);
