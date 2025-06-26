@@ -46,6 +46,9 @@ class BlockController extends Controller
      */
     public function destroy(string $id)
     {
-        echo $id;
+        $block = Block::find($id);
+        $block->delete();
+
+        return redirect()->back()->with('msg-success', 'Bloco deletado com sucesso!');
     }
 }
