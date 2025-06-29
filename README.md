@@ -1,9 +1,14 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-# E-Locker - Registro de Entregas
-Sistema de registro de entregas para condomínios, que disponibiliza dois perfis de autenticação onde o usuário irá logar e registrar a encomenda recebida, cadastrando por nome do recebedor, nome do destinatário, foto, descrição e a unidade destinatária. 
+## 📘 Descrição
 
-Para a retirada da entrega o usuário registra o nome da pessoa que fez a retirada e colhe sua assinatura. Venha conferir!
+O E-Locker é um sistema de registro de entregas voltado para condomínios. Possui dois perfis de acesso (Administrador e Operador), onde é possível:
+
+- Registrar encomendas recebidas com informações detalhadas: nome do recebedor, destinatário, descrição, foto e unidade.
+
+- Registrar retiradas com a assinatura da pessoa que recebeu o pacote.
+
+- Gerenciar entregas, usuários e unidades do condomínio de forma intuitiva.
 
 ## 🚀 Tecnologias Utilizadas no projeto
 
@@ -27,15 +32,14 @@ Back-end:
 
 ## ✨ Principais Funcionalidades
 
-- Login com autenticação
+- Autenticação de usuários
 - Validação de formulários
-- Listagem e edição de dados
 - Busca em tempo real de entregas via Id ou nome do cliente
 - Gerenciamento de entregas
-- Dashboard com comparativo de entregas ao longo dos meses
+- Dashboard com comparativo mensal de entregas
 - Filtragem de entregas por mês
 - Informações de unidades com mais entregas
-- ACL para controle de permissões de usuário
+- Controle de permissões (ACL)
 
 Gerenciamento total (CRUD) de:
 
