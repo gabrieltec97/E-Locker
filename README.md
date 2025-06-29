@@ -17,7 +17,6 @@ Front-end:
 - CSS
 - JavaScript ES6
 - Bootstrap
-- Vue.Js
 - LavaCharts
 - Notyf
 - SweetAlert2
