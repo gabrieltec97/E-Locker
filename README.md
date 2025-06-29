@@ -47,11 +47,10 @@ Gerenciamento total (CRUD) de:
 - Unidades
 - Usuários
 
-O sistema disponibiliza 2 (dois) tipos de usuário:
+## 👥 Perfis de Acesso
+Administrador: Acesso total ao sistema, com gerenciamento de usuários, unidades e entregas.
 
-- Administrador
-- Operador
-
+Operador: Gerenciamento total de entregas.
 ## 🌐 O projeto está online!
 
 Acesse em: (https://e-locker.online)
